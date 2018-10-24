@@ -67,6 +67,9 @@ class Menu extends React.Component {
           </div>
           <View />
         </div>
+        <div class="greyline">
+          <h2>Special</h2>
+        </div>
       </div>
     );
   }

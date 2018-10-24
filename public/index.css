@@ -33,7 +33,9 @@ button:hover {
   border-bottom: 1px solid #d8d9db;
   border-top: 1px solid #d8d9db;
 }
-
+.greyline {
+  border-bottom: 1px solid #d8d9db;
+}
 #viewFull {
   border: 1px solid #d8d9db;
   background: none;
