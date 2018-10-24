@@ -8,10 +8,29 @@
     "node": ">=6.13.0"
   },
   "scripts": {
+    "build": "webpack --watch",
+    "start": "nodemon ./server/server.js"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.4",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "css-loader": "^1.0.0",
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "express": "^4.16.4",
+    "jest": "^22.3.0",
+    "morgan": "^1.9.0",
+    "nodemon": "^1.18.4",
+    "path": "^0.12.7",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "style": "0.0.3",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.22.0",
+    "webpack-watch": "^0.2.0"
   }
 }
