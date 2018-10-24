@@ -14,8 +14,8 @@ app.use(express.static(path.join(__dirname, "../public")));
 
 app.get("/menu/:menu", (req, res) => {
   let menu = req.params.menu;
-  console.log(menu);
   let query = `select * from ${menu};`;
+  console.log(menu);
   db.query(query, (err, data) => {
     if (err) return console.log(err.message);
     res.json(data);
