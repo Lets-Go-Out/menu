@@ -6,21 +6,29 @@ const parser = require("body-parser");
 const faker = require("faker");
 const app = express();
 const port = process.env.PORT || 3000;
-const db = require("../database/connection.js");
+const Items = require("../database/connection.js");
+const sorter = require("./sorter.js");
 
 app.use(morgan("dev"));
 app.use(cors());
 app.use(parser.json());
 app.use(express.static(path.join(__dirname, "../public")));
 
-// Rowan Nikolaus
-
-app.get("/menu/:menu", (req, res) => {
+app.get("/:restaurantID/menu/:menu", (req, res) => {
   let menu = req.params.menu;
-  let query = `select * from ${menu};`;
-  db.query(query, (err, data) => {
-    if (err) return console.log(err.message);
-    res.json(data);
+  let restaurantID = req.params.restaurantID.toString();
+  Items.find({ restaurantID: restaurantID }, (err, docs) => {
+    docs = docs.filter(e => e[menu]);
+    res.json(docs);
+  });
+});
+
+app.get("/:restaurantID/menuCount", (req, res) => {
+  let restaurantID = req.params.restaurantID.toString();
+  Items.find({ restaurantID: restaurantID }, (err, docs) => {
+    if (err) return console.error(err);
+    let menuCount = sorter(docs);
+    res.json(menuCount);
   });
 });
 

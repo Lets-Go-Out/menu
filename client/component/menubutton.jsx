@@ -8,7 +8,7 @@ class Button extends React.Component {
   }
   clickHandler(event) {
     event.preventDefault();
-    this.props.clickDispatcher(this.props.item); //tells us the button's value
+    this.props.clickDispatcher(this.props.item, this.props.restaurantID); //tells us the button's value
   }
   render() {
     return (
@@ -31,8 +31,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    clickDispatcher: value => {
-      let url = "http://127.0.0.1:3000/menu/";
+    clickDispatcher: (value, restaurantID) => {
+      let url = `http://127.0.0.1:3000/${restaurantID}/menu/`;
       let option = {
         method: "GET",
         headers: {
