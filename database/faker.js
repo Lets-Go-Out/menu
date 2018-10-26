@@ -1,5 +1,5 @@
 const faker = require("faker");
-const numberofentries = 600;
+const numberofentries = 6000;
 var fakerList = Array(numberofentries).fill("0");
 const nameGenerator = () => {
   let n = Math.ceil(Math.random() * 2);
@@ -26,7 +26,7 @@ const ingredientGenerator = () => {
   return output;
 };
 const restaurantIDGenerator = () => {
-  return Math.ceil(Math.random() * 20);
+  return Math.ceil(Math.random() * 100);
 };
 const priceGenerator = () => {
   function addzero(num) {
@@ -66,6 +66,9 @@ const menuGenerator = restID => {
       break;
     case restID[length] === "9" || restID[length] === "8":
       x = ["Lunch", "Dinner", "Breakfast", "Brunch", "Happy  Hour", "Alcohol"];
+      break;
+    case restID[length] === "5" && restID[0] === "5":
+      x = ["Dinner", "Alcohol"];
       break;
     case restID[0] % 2 === 0:
       x = ["Lunch", "Dinner", "Breakfast", "Brunch"];

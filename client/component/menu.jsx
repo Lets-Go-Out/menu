@@ -76,13 +76,13 @@ class Menu extends React.Component {
                 ))}
               </div>
             </div>
+            <div id={this.props.viewmode === "container-1" ? "blocker" : ""} />
           </div>
           <View />
         </div>
         <div className="greyline">
           <h2>Special</h2>
         </div>
-        <div id="sticky">I am sticky</div>
       </div>
     );
   }

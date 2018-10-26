@@ -5,6 +5,7 @@ const initialState = {
   navmenu: ["Lunch", "Dinner", "Brunch", "Happy Hour"],
   selected: "Lunch", //need to use Caps
   viewmode: "container-1",
+  viewFull: "viewFull", //view Button
   restaurantID: 1,
   entry: []
 };
@@ -29,7 +30,13 @@ const Reducers = (state = initialState, action) => {
       let obj3 = Object.assign({}, state);
       obj3.viewmode =
         state.viewmode === "container-1" ? "container-2" : "container-1";
+      obj3.viewFull =
+        obj3.viewmode === "container-1" ? "viewFull" : "viewFull2";
       return obj3;
+    case "BUTTONCHANGE":
+      let obj4 = Object.assign({}, state);
+      obj4.viewFull = "viewFull";
+      return obj4;
     default:
       return state;
   }

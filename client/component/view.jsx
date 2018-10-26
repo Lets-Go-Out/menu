@@ -4,6 +4,17 @@ import { connect } from "react-redux";
 class View extends React.Component {
   constructor(props) {
     super(props);
+    this.handleScroll = this.handleScroll.bind(this);
+  }
+  componentDidMount() {
+    window.addEventListener("scroll", this.handleScroll);
+  }
+  handleScroll() {
+    var container = document.getElementsByClassName("container-2");
+    if (container.length) var offset = container[0].offsetHeight;
+    if (container.length && window.scrollY > offset - 250) {
+      this.props.viewChange();
+    }
   }
   render() {
     const viewFullStyle = {
@@ -13,14 +24,8 @@ class View extends React.Component {
     };
     return (
       <div>
-        <div id={this.props.viewmode === "container-1" ? "blocker" : ""} />
         <div style={viewFullStyle}>
-          <button
-            id={
-              this.props.viewmode === "container-1" ? "viewFull" : "viewFull2"
-            }
-            onClick={this.props.viewModeChange}
-          >
+          <button id={this.props.viewFull} onClick={this.props.viewModeChange}>
             View Full Menu
           </button>
         </div>
@@ -35,7 +40,10 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     viewModeChange: () => {
-      dispatch({ type: "VIEWCHANGE" });
+      dispatch({ type: "VIEWCHANGE" }); //this is actually view mode change
+    },
+    viewChange: () => {
+      dispatch({ type: "BUTTONCHANGE" }); //this is actually the button change
     }
   };
 }
