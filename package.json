@@ -9,15 +9,24 @@
   },
   "jest": {
     "transform": {
-      "^.+\\.js$": "babel-jest"
+      "^.+\\.(jsx|js)?$": "<rootDir>/node_modules/babel-jest"
     },
-    "moduleDirectories": [
-      "node_modules",
-      "cli"
+    "moduleNameMapper": {
+      "\\.css$": "identity-obj-proxy"
+    },
+    "collectCoverageFrom": [
+      "**/*.component.{js,jsx}",
+      "!**/node_modules/**"
     ],
-    "testEnvironment": "node",
-    "testURL": "http://localhost",
-    "setupTestFrameworkScriptFile": "<rootDir>/__tests__/setup/setupEnzyme.js",
+    "coverageReporters": [
+      "text-summary"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "jsx"
+    ],
+    "setupTestFrameworkScriptFile": "<rootDir>__tests__/setup/setupEnzyme.js",
     "testPathIgnorePatterns": [
       "<rootDir>/__tests__/setup/"
     ]
@@ -25,19 +34,20 @@
   "scripts": {
     "build": "webpack --watch",
     "start": "nodemon ./server/server.js",
-    "setupTestFrameworkScriptFile": "<rootDir>cli/setupTests.js",
     "test": "jest",
     "seed": "node database/seed.js"
   },
   "dependencies": {
-    "axios": "^0.18.0",
-    "whatwg-fetch": "^3.0.0"
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.1.2",
     "@babel/core": "^7.1.2",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
-    "babel-core": "^7.0.0-bridge.0",
+    "axios": "^0.18.0",
+    "babel-core": "^7.0.0-bridge",
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.4",
     "body-parser": "^1.18.3",
@@ -49,16 +59,14 @@
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "express": "^4.16.4",
     "faker": "^4.1.0",
-    "jest": "^22.4.4",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^23.6.0",
     "mongodb": "^3.1.8",
     "mongoose": "^5.3.6",
     "morgan": "^1.9.0",
-    "node-sass": "^4.9.4",
     "nodemon": "^1.18.4",
     "path": "^0.12.7",
     "puppeteer": "^1.9.0",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
     "react-redux": "^5.0.7",
     "react-test-renderer": "^16.6.0",
     "redux": "^4.0.1",
