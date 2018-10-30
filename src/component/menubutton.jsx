@@ -1,13 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
 
-class Button extends React.Component {
+export class Button extends React.Component {
   constructor(props) {
     super(props);
     this.clickHandler = this.clickHandler.bind(this);
   }
   clickHandler(event) {
-    event.preventDefault();
+    //event.preventDefault();
     this.props.clickDispatcher(this.props.item, this.props.restaurantID); //tells us the button's value
   }
   render() {
@@ -32,7 +32,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     clickDispatcher: (value, restaurantID) => {
-      let url = `http://127.0.0.1:3000/${restaurantID}/menu/`;
+      let url = `http://127.0.0.1:3001/restaurants/${restaurantID}/menu/`;
       let option = {
         method: "GET",
         headers: {

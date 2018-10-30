@@ -11,8 +11,14 @@ class View extends React.Component {
   }
   handleScroll() {
     var container = document.getElementsByClassName("container-2");
-    if (container.length) var offset = container[0].offsetHeight;
-    if (container.length && window.scrollY > offset - 250) {
+    if (container.length) {
+      var offset = container[0].offsetHeight;
+      var offset2 = container[0].offsetTop;
+    }
+    if (
+      container.length &&
+      (window.scrollY > offset + 300 || window.scrollY < offset2 - 500)
+    ) {
       this.props.viewChange();
     }
   }

@@ -28,17 +28,6 @@ afterAll(() => {
   browser.close();
 });
 
-describe("searh function", () => {
-  beforeEach(async () => {
-    await page.goto(pageUrl, { waitUntil: "networkidle2" });
-  });
-  test("initial tital is correct", async () => {
-    var div = ".container";
-    const title = await page.$eval(div, e => e.textContent);
-    expect(title).toBe.true;
-  });
-});
-
 test("two plus two is four", () => {
   expect(2 + 2).toBe(4);
 });
@@ -46,7 +35,7 @@ test("two plus two is four", () => {
 test("testing asynchronous functions", () => {
   expect.assertions(1);
   return axios
-    .get("http://127.0.0.1:3000/1/menu/Lunch")
+    .get("http://127.0.0.1:3001/restaurants/1/menu/Lunch")
     .then(function(response) {
       expect(response).toBe(response);
     })
@@ -58,7 +47,7 @@ test("testing asynchronous functions", () => {
 test("testing asynchronous functions", () => {
   expect.assertions(1);
   return axios
-    .get("http://127.0.0.1:3000/1/menu/Happy_Hour")
+    .get("http://127.0.0.1:3000/restaurants/1/menu/Happy_Hour")
     .then(function(response) {
       expect(response).toBe(response);
     })

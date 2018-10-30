@@ -64,6 +64,13 @@ button:hover {
   box-shadow: rgba(51, 51, 51, 0.2) 0px 2px 4px;
   transform: translate(-50%, -50%);
 }
+.MotherContainer {
+  padding-left: 150px;
+  padding-right: 150px;
+}
+.OtherComponents {
+  height: 800px;
+}
 #viewFull:hover {
   cursor: pointer;
 }

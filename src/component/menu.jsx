@@ -28,14 +28,16 @@ class Menu extends React.Component {
       }
     };
     fetch(
-      "http://127.0.0.1:3000/" + this.props.restaurantID + "/menuCount",
+      "http://127.0.0.1:3001/restaurants/" +
+        this.props.restaurantID +
+        "/menuCount",
       option
     )
       .then(response => response.json())
       .then(data => {
         this.props.fetchMenuData(data);
         fetch(
-          "http://127.0.0.1:3000/" +
+          "http://127.0.0.1:3001/restaurants/" +
             this.props.restaurantID +
             "/menu/" +
             this.props.navmenu[0],
@@ -55,7 +57,8 @@ class Menu extends React.Component {
       var mid = 1;
     }
     return (
-      <div>
+      <div className="MotherContainer">
+        <div className="OtherComponents" />
         <div>
           <h2>Menu</h2>
           <nav id="menuNav">
