@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-class View extends React.Component {
+export class View extends React.Component {
   constructor(props) {
     super(props);
     this.handleScroll = this.handleScroll.bind(this);
@@ -32,7 +32,7 @@ class View extends React.Component {
       <div>
         <div style={viewFullStyle}>
           <button id={this.props.viewFull} onClick={this.props.viewModeChange}>
-            View Full Menu
+            {this.props.viewmode === "container-1" ? "View All" : "View Less"}
           </button>
         </div>
       </div>

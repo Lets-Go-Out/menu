@@ -5,6 +5,8 @@ import Entries from "./entries.jsx";
 import store from "./storage/store.js";
 import View from "./view.jsx";
 import { connect } from "react-redux";
+import MediaQuery from "react-responsive";
+import Truncate from "react-truncate";
 
 const infoStyle = {
   float: "left",
@@ -15,7 +17,7 @@ const infoStyle = {
   textAlign: "center"
 };
 
-class Menu extends React.Component {
+export class Menu extends React.Component {
   constructor(props) {
     super(props);
   }

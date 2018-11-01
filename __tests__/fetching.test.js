@@ -47,7 +47,7 @@ test("testing asynchronous functions", () => {
 test("testing asynchronous functions", () => {
   expect.assertions(1);
   return axios
-    .get("http://127.0.0.1:3000/restaurants/1/menu/Happy_Hour")
+    .get("http://127.0.0.1:3001/restaurants/1/menu/Happy_Hour")
     .then(function(response) {
       expect(response).toBe(response);
     })

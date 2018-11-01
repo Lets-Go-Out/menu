@@ -7,7 +7,30 @@ const initialState = {
   viewmode: "container-1",
   viewFull: "viewFull", //view Button
   restaurantID: 1,
-  entry: []
+  entry: [
+    {
+      restaurantID: 1,
+      Lunch: {
+        name: "blabla",
+        restaurantID: "1",
+        description: "ksldfjlsfjl;ka;dsfjkl;ajdfk;lja;lkdfj;aljfd;sa;fj",
+        ingredients: ["chicken", "beans"],
+        price: "$11.11",
+        menu: "Lunch"
+      }
+    },
+    {
+      restaurantID: 1,
+      Lunch: {
+        name: "sldfjl;",
+        restaurantID: "1",
+        description: "ksldfjlsfjl;ka;dsfjkl;ajdfk;lja;lkdfj;aljfd;sa;fj",
+        ingredients: ["beef", "beans"],
+        price: "$31.11",
+        menu: "Lunch"
+      }
+    }
+  ]
 };
 
 const Reducers = (state = initialState, action) => {

@@ -68,6 +68,19 @@ button:hover {
   padding-left: 150px;
   padding-right: 150px;
 }
+@media screen and (max-width: 900px) {
+  .MotherContainer {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  #menuNav {
+    display: flex;
+    justify-content: space-evenly;
+    border-bottom: 1px solid #d8d9db;
+    border-top: 1px solid #d8d9db;
+  }
+}
+
 .OtherComponents {
   height: 800px;
 }
@@ -91,13 +104,14 @@ button:hover {
 .container-2 {
   height: auto;
 }
+
 .leftContainer {
   height: 100%;
   width: 50%;
   position: relative;
   display: inline-block;
   padding-right: 40px;
-  text-align: center;
+  text-align: left;
 }
 .rightContainer {
   height: 100%;
@@ -105,7 +119,45 @@ button:hover {
   position: relative;
   display: inline-block;
   padding-left: 40px;
-  text-align: center;
+  text-align: left;
+}
+@media screen and (max-width: 600px) {
+  .leftContainer {
+    height: 100%;
+    width: 40%;
+    position: relative;
+    display: inline-block;
+    text-align: left;
+  }
+  .rightContainer {
+    height: 100%;
+    width: 40%;
+    position: relative;
+    display: inline-block;
+    text-align: left;
+  }
+  #menuNav {
+    display: block;
+    width: 75%;
+    border-bottom: 1px solid #d8d9db;
+    border-top: 1px solid #d8d9db;
+  }
+}
+@media screen and (max-width: 300px) {
+  .leftContainer {
+    height: 100%;
+    width: 10%;
+    position: relative;
+    display: block;
+    text-align: left;
+  }
+  .rightContainer {
+    height: 100%;
+    width: 10%;
+    position: relative;
+    display: block;
+    text-align: left;
+  }
 }
 
 .entryContainer {

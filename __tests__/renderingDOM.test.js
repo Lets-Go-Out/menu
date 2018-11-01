@@ -29,6 +29,6 @@ describe("testing View to see if it is rendered", () => {
         .find("button")
         .childAt(0)
         .text()
-    ).toBe("View Full Menu");
+    ).toBe("View All");
   });
 });
