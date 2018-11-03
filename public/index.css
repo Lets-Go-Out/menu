@@ -3,6 +3,7 @@ body {
     Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji,
     Segoe UI Symbol;
   height: 5000px;
+  font-size: 14px;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -67,6 +68,8 @@ button:hover {
 .MotherContainer {
   padding-left: 150px;
   padding-right: 150px;
+}
+#hidden {
 }
 @media screen and (max-width: 900px) {
   .MotherContainer {

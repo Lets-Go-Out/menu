@@ -7,7 +7,6 @@ export class Button extends React.Component {
     this.clickHandler = this.clickHandler.bind(this);
   }
   clickHandler(event) {
-    //event.preventDefault();
     this.props.clickDispatcher(this.props.item, this.props.restaurantID); //tells us the button's value
   }
   render() {
@@ -31,7 +30,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    clickDispatcher: (value, restaurantID) => {
+    clickDispatcher: (selected, restaurantID) => {
       let url = `http://127.0.0.1:3001/restaurants/${restaurantID}/menu/`;
       let option = {
         method: "GET",
@@ -39,14 +38,14 @@ function mapDispatchToProps(dispatch) {
           "Content-Type": "application/json"
         }
       };
-      value = value.replace(" ", "_");
-      fetch(url + value, option)
+      selected = selected.replace(" ", "_");
+      fetch(url + selected, option)
         .then(response => response.json())
-        .then(data => {
+        .then(entry => {
           dispatch({
-            type: "MENUBUTTON_CLICK",
-            value,
-            data
+            type: "FETCHDATA",
+            selected,
+            entry
           });
         });
     }
