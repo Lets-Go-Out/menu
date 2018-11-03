@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshotting snapshotting 1`] = `
+<div
+  className="MotherContainer"
+>
+  <div
+    className="OtherComponents"
+  />
+  <div>
+    <h2>
+      Menu
+    </h2>
+    <nav
+      id="menuNav"
+    >
+      <button
+        className="menu-nav selected"
+        onClick={[Function]}
+      >
+        Lunch
+      </button>
+      <button
+        className="menu-nav"
+        onClick={[Function]}
+      >
+        Dinner
+      </button>
+      <button
+        className="menu-nav"
+        onClick={[Function]}
+      >
+        Brunch
+      </button>
+      <button
+        className="menu-nav"
+        onClick={[Function]}
+      >
+        Happy Hour
+      </button>
+    </nav>
+    <div
+      className="container-1"
+    >
+      <div
+        className="container"
+      >
+        <div
+          className="leftContainer"
+        />
+        <div
+          className="rightContainer"
+        />
+      </div>
+      <div
+        id="blocker"
+      />
+    </div>
+    <div>
+      <div
+        style={
+          Object {
+            "borderBottom": "1px solid #d8d9db",
+            "paddingBottom": "40px",
+            "textAlign": "center",
+          }
+        }
+      >
+        <button
+          id="viewFull"
+          onClick={[Function]}
+        >
+          View All
+        </button>
+      </div>
+    </div>
+  </div>
+  <div
+    className="greyline"
+  >
+    <h2>
+      Special
+    </h2>
+  </div>
+</div>
+`;

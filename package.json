@@ -8,9 +8,28 @@
     "node": ">=6.13.0"
   },
   "jest": {
-    "transform": {},
-    "testEnvironment": "node",
-    "testURL": "http://localhost"
+    "transform": {
+      "^.+\\.(jsx|js)?$": "<rootDir>/node_modules/babel-jest"
+    },
+    "moduleNameMapper": {
+      "\\.css$": "identity-obj-proxy"
+    },
+    "collectCoverageFrom": [
+      "**/*.component.{js,jsx}",
+      "!**/node_modules/**"
+    ],
+    "coverageReporters": [
+      "text-summary"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "jsx"
+    ],
+    "setupTestFrameworkScriptFile": "<rootDir>__tests__/setup/setupEnzyme.js",
+    "testPathIgnorePatterns": [
+      "<rootDir>/__tests__/setup/"
+    ]
   },
   "scripts": {
     "build": "webpack --watch",
@@ -19,13 +38,15 @@
     "seed": "node database/seed.js"
   },
   "dependencies": {
-    "axios": "^0.18.0",
-    "whatwg-fetch": "^3.0.0"
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.1.2",
     "@babel/core": "^7.1.2",
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
+    "axios": "^0.18.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.4",
@@ -34,28 +55,35 @@
     "css-loader": "^1.0.0",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.6.0",
+    "enzyme-redux": "^0.2.1",
     "enzyme-to-json": "^3.3.4",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "express": "^4.16.4",
     "faker": "^4.1.0",
-    "jest": "^22.4.4",
+    "identity-obj-proxy": "^3.0.0",
+    "isomorphic-fetch": "^2.2.1",
+    "jest": "^23.6.0",
     "mongodb": "^3.1.8",
     "mongoose": "^5.3.6",
     "morgan": "^1.9.0",
-    "node-sass": "^4.9.4",
+    "mysql": "^2.16.0",
     "nodemon": "^1.18.4",
     "path": "^0.12.7",
+    "prettier": "^1.14.3",
+    "prop-types": "^15.6.2",
     "puppeteer": "^1.9.0",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
     "react-redux": "^5.0.7",
+    "react-responsive": "^6.0.0",
     "react-test-renderer": "^16.6.0",
+    "react-truncate": "^2.4.0",
     "redux": "^4.0.1",
+    "redux-mock-store": "^1.5.3",
+    "redux-test-utils": "^0.3.0",
     "redux-thunk": "^2.3.0",
     "regenerator-runtime": "^0.12.1",
     "sass": "^1.14.3",
     "sass-loader": "^7.1.0",
-    "sinon": "^7.0.0",
+    "sinon": "^7.1.0",
     "style": "0.0.3",
     "style-loader": "^0.23.1",
     "webpack": "^4.23.1",

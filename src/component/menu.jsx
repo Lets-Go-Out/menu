@@ -1,10 +1,11 @@
 import React from "react";
-import style from "style";
 import MenuButtons from "./menubutton.jsx";
 import Entries from "./entries.jsx";
-import store from "./storage/store.js";
 import View from "./view.jsx";
 import { connect } from "react-redux";
+import { fetchMenuData } from "../APICalls/fetch.js";
+import Cheats from "./cheats.jsx";
+import Special from "./special.jsx";
 
 const infoStyle = {
   float: "left",
@@ -15,37 +16,17 @@ const infoStyle = {
   textAlign: "center"
 };
 
-class Menu extends React.Component {
+export class Menu extends React.Component {
   constructor(props) {
     super(props);
   }
 
   componentDidMount() {
-    let option = {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json"
-      }
-    };
-    fetch(
-      "http://127.0.0.1:3000/" + this.props.restaurantID + "/menuCount",
-      option
-    )
-      .then(response => response.json())
-      .then(data => {
-        this.props.fetchMenuData(data);
-        fetch(
-          "http://127.0.0.1:3000/" +
-            this.props.restaurantID +
-            "/menu/" +
-            this.props.navmenu[0],
-          option
-        )
-          .then(response1 => response1.json())
-          .then(data1 => {
-            this.props.fetchData(data1, this.props.navmenu[0]);
-          });
-      });
+    fetchMenuData(
+      this.props.restaurantID,
+      this.props.fetchMenuData,
+      this.props.fetchData
+    );
   }
 
   render() {
@@ -55,9 +36,11 @@ class Menu extends React.Component {
       var mid = 1;
     }
     return (
-      <div>
+      <div className="MotherContainer">
+        <div className="OtherComponents" />
         <div>
           <h2>Menu</h2>
+          <Cheats />
           <nav id="menuNav">
             {this.props.navmenu.map((e, i) => (
               <MenuButtons key={i} item={e} />
@@ -80,9 +63,7 @@ class Menu extends React.Component {
           </div>
           <View />
         </div>
-        <div className="greyline">
-          <h2>Special</h2>
-        </div>
+        <Special />
       </div>
     );
   }
@@ -93,8 +74,8 @@ const mapStateToProps = state => {
 };
 const mapDispatchToProps = dispatch => {
   return {
-    fetchData: (data, selected) =>
-      dispatch({ type: "FETCHDATA", data, selected }),
+    fetchData: (entry, selected) =>
+      dispatch({ type: "FETCHDATA", entry, selected }),
     fetchMenuData: data1 => dispatch({ type: "FETCHMENUDATA", data1 }),
     viewModeChange: () => dispatch({ type: "VIEWCHANGE" })
   };

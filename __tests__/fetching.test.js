@@ -1,5 +1,13 @@
-const axios = require("axios");
-const pupeeteer = require("puppeteer");
+import React from "react";
+import axios from "axios";
+import pupeeteer from "puppeteer";
+
+describe("hello", () => {
+  test("hello", () => {
+    expect(true).toBe.true;
+  });
+});
+
 const pageUrl = "http://127.0.0.1:3000/";
 
 let page, browser;
@@ -20,17 +28,6 @@ afterAll(() => {
   browser.close();
 });
 
-describe("searh function", () => {
-  beforeEach(async () => {
-    await page.goto(pageUrl, { waitUntil: "networkidle2" });
-  });
-  test("initial tital is correct", async () => {
-    var div = ".container";
-    const title = await page.$eval(div, e => e.textContent);
-    expect(title).toBe.true;
-  });
-});
-
 test("two plus two is four", () => {
   expect(2 + 2).toBe(4);
 });
@@ -38,7 +35,19 @@ test("two plus two is four", () => {
 test("testing asynchronous functions", () => {
   expect.assertions(1);
   return axios
-    .get("http://127.0.0.1:3000/restaurant/menu/Lunch")
+    .get("http://127.0.0.1:3001/restaurants/1/menu/Lunch")
+    .then(function(response) {
+      expect(response).toBe(response);
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+});
+
+test("testing asynchronous functions", () => {
+  expect.assertions(1);
+  return axios
+    .get("http://127.0.0.1:3001/restaurants/1/menu/Happy_Hour")
     .then(function(response) {
       expect(response).toBe(response);
     })
