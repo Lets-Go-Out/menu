@@ -15,5 +15,11 @@ const menuSchema = new mongoose.Schema({
   Happy_Hour: Object,
   Alcohol: Object
 });
+const specialSchema = new mongoose.Schema({
+  restaurantID: String,
+  head: String,
+  body: String
+});
 const Items = mongoose.model("Items", menuSchema, "Items");
-module.exports = Items;
+const Special = mongoose.model("Special", specialSchema, "Special");
+module.exports = { Items, Special };
