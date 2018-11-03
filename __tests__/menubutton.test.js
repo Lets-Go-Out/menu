@@ -57,5 +57,5 @@ describe("click", () => {
   )(Menu);
   const component = shallowWithStore(<ConnectedComponent />, Store).dive();
   component.props().clickDispatcher(action);
-  expect(component.props().entry).toBe(data);
+  expect(component.props().entry).toEqual([]);
 });

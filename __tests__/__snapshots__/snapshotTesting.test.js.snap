@@ -11,6 +11,20 @@ exports[`snapshotting snapshotting 1`] = `
     <h2>
       Menu
     </h2>
+    <div
+      id="hidden"
+    >
+      <button
+        onClick={[Function]}
+      >
+        Previous
+      </button>
+      <button
+        onClick={[Function]}
+      >
+        Next
+      </button>
+    </div>
     <nav
       id="menuNav"
     >
@@ -75,12 +89,6 @@ exports[`snapshotting snapshotting 1`] = `
       </div>
     </div>
   </div>
-  <div
-    className="greyline"
-  >
-    <h2>
-      Special
-    </h2>
-  </div>
+  <div />
 </div>
 `;
