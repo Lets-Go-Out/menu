@@ -56,27 +56,43 @@ const menuGenerator = restID => {
   let x;
   restID = restID.toString();
   let length = restID.length - 1;
-  switch (restID) {
-    case restID[0] === "1":
+  switch (restID[0]) {
+    case "1":
       x = ["Lunch", "Dinner"];
       break;
-    case restID[0] === "5":
+    case "5":
       x = ["Lunch", "Breakfast", "Happy Hour", "Alcohol"];
       break;
-    case restID[length] === "0":
-      x = ["Dinner", "Happy Hour", "Alcohol"];
-      break;
-    case restID[length] === "9" || restID[length] === "8":
-      x = ["Lunch", "Dinner", "Breakfast", "Brunch", "Happy  Hour", "Alcohol"];
-      break;
-    case restID[length] === "5" && restID[0] === "5":
-      x = ["Dinner", "Alcohol"];
-      break;
-    case restID[0] % 2 === 0:
-      x = ["Lunch", "Dinner", "Breakfast", "Brunch"];
+    case "6":
+      x = ["Dinner", "Happy Hour", "Alcohol", "Brunch"];
       break;
     default:
-      x = ["Lunch", "Dinner", "Breakfast"];
+      switch (restID[length]) {
+        case "9":
+        case "8":
+          x = [
+            "Lunch",
+            "Dinner",
+            "Breakfast",
+            "Brunch",
+            "Happy  Hour",
+            "Alcohol"
+          ];
+          break;
+        case "5":
+          if (Math.round(Math.random()) === 0) {
+            x = ["Dinner", "Alcohol", "Happy Hour"];
+            break;
+          } else {
+            x = ["Dinner", "Happy Hour", "Kids"];
+            break;
+          }
+        case "2":
+          x = ["Lunch", "Dinner", "Brunch", "Kids"];
+          break;
+        default:
+          x = ["Lunch", "Dinner", "Breakfast"];
+      }
   }
   return x[Math.floor(Math.random() * x.length)];
 };

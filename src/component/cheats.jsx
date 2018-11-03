@@ -31,8 +31,15 @@ function mapStateToProps(state) {
 }
 function mapDispatchToProps(dispatch) {
   return {
-    wholeChange: (restaurantID, selected, entry, navmenu) =>
-      dispatch({ type: "WHOLECHANGE", restaurantID, selected, entry, navmenu })
+    wholeChange: (restaurantID, selected, entry, navmenu, special) =>
+      dispatch({
+        type: "WHOLECHANGE",
+        restaurantID,
+        selected,
+        entry,
+        navmenu,
+        special
+      })
   };
 }
 export default connect(

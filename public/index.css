@@ -70,6 +70,7 @@ button:hover {
   padding-right: 150px;
 }
 #hidden {
+  display: none;
 }
 @media screen and (max-width: 900px) {
   .MotherContainer {
@@ -107,7 +108,32 @@ button:hover {
 .container-2 {
   height: auto;
 }
-
+.row {
+  display: flex;
+  flex-wrap: wrap-reverse;
+}
+.column {
+  flex: 50%;
+  width: 50%;
+}
+.readmore {
+  font-weight: 400;
+  display: block;
+  color: palevioletred;
+}
+.readmore:hover {
+  cursor: pointer;
+  color: red;
+}
+.bodycontent {
+  font-weight: 600;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.headcontent {
+  font-weight: 600;
+  display: block;
+}
 .leftContainer {
   height: 100%;
   width: 50%;

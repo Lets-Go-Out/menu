@@ -7,30 +7,8 @@ const initialState = {
   viewmode: "container-1",
   viewFull: "viewFull", //view Button
   restaurantID: 1,
-  entry: [
-    {
-      restaurantID: 1,
-      Lunch: {
-        name: "blabla",
-        restaurantID: "1",
-        description: "ksldfjlsfjl;ka;dsfjkl;ajdfk;lja;lkdfj;aljfd;sa;fj",
-        ingredients: ["chicken", "beans"],
-        price: "$11.11",
-        menu: "Lunch"
-      }
-    },
-    {
-      restaurantID: 1,
-      Lunch: {
-        name: "sldfjl;",
-        restaurantID: "1",
-        description: "ksldfjlsfjl;ka;dsfjkl;ajdfk;lja;lkdfj;aljfd;sa;fj",
-        ingredients: ["beef", "beans"],
-        price: "$31.11",
-        menu: "Lunch"
-      }
-    }
-  ]
+  entry: [],
+  special: []
 };
 
 const Reducers = (state = initialState, action) => {
@@ -67,7 +45,12 @@ const Reducers = (state = initialState, action) => {
       wholechange.viewmode = "container-1";
       wholechange.viewFull = "viewFull";
       wholechange.navmenu = action.navmenu;
+      wholechange.special = action.special;
       return wholechange;
+    case "SPECIAL":
+      let obj5 = Object.assign({}, state);
+      obj5.special = action.special;
+      return obj5;
     default:
       return state;
   }

@@ -6,7 +6,7 @@ const parser = require("body-parser");
 const faker = require("faker");
 const app = express();
 const port = process.env.PORT || 3001;
-const Items = require("../database/connection.js");
+const { Items, Special } = require("../database/connection.js");
 const sorter = require("./sorter.js");
 
 app.use(morgan("dev"));
@@ -29,6 +29,14 @@ app.get("/restaurants/:restaurantID/menuCount", (req, res) => {
     if (err) return console.error(err);
     let menuCount = sorter(docs);
     res.json(menuCount);
+  });
+});
+
+app.get("/restaurants/:restaurantID/special", (req, res) => {
+  let restaurantID = req.params.restaurantID.toString();
+  Special.find({ restaurantID: restaurantID }, (err, docs) => {
+    if (err) return console.error(err);
+    res.json(docs);
   });
 });
 

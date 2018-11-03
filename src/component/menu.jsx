@@ -5,6 +5,7 @@ import View from "./view.jsx";
 import { connect } from "react-redux";
 import { fetchMenuData } from "../APICalls/fetch.js";
 import Cheats from "./cheats.jsx";
+import Special from "./special.jsx";
 
 const infoStyle = {
   float: "left",
@@ -62,6 +63,7 @@ export class Menu extends React.Component {
           </div>
           <View />
         </div>
+        <Special />
       </div>
     );
   }
