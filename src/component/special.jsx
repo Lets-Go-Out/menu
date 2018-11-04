@@ -11,7 +11,6 @@ class Special extends React.Component {
     fetchSpecial(this.props.restaurantID, this.props.fetchSpecial);
   }
   render() {
-    console.log(this.props);
     if (this.props.special.length) {
       return (
         <div>
