@@ -29,25 +29,25 @@ exports[`snapshotting snapshotting 1`] = `
       id="menuNav"
     >
       <button
-        className="menu-nav selected"
+        className="MenuNavButton2"
         onClick={[Function]}
       >
         Lunch
       </button>
       <button
-        className="menu-nav"
+        className="MenuNavButton"
         onClick={[Function]}
       >
         Dinner
       </button>
       <button
-        className="menu-nav"
+        className="MenuNavButton"
         onClick={[Function]}
       >
         Brunch
       </button>
       <button
-        className="menu-nav"
+        className="MenuNavButton"
         onClick={[Function]}
       >
         Happy Hour

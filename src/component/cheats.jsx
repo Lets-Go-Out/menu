@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { wholeRestaurantChange } from "../APICalls/fetch.js";
+import styles from "./css/cheats.css";
 
 class Cheats extends Component {
   constructor(props) {
@@ -19,7 +20,7 @@ class Cheats extends Component {
   }
   render() {
     return (
-      <div id="hidden">
+      <div id={styles.hidden}>
         <button onClick={() => this.wholeChange(-1)}>Previous</button>
         <button onClick={() => this.wholeChange(1)}>Next</button>
       </div>

@@ -1,6 +1,7 @@
 import Truncate from "react-truncate";
 import React from "react";
 import PropTypes from "prop-types";
+import Styles from "./css/specialentries.css";
 
 class Specialentry extends React.Component {
   constructor(props) {
@@ -32,27 +33,27 @@ class Specialentry extends React.Component {
 
     const { expanded, truncated } = this.state;
     return (
-      <div className="column">
-        <p className="headcontent">{this.props.head}</p>
+      <div className={Styles.column}>
+        <p className={Styles.headContent}>{this.props.head}</p>
         <Truncate
-          className="bodycontent"
+          className={Styles.bodyContent}
           lines={!expanded && lines}
           ellipsis={
             <span>
               ...
-              <a className="readmore" onClick={this.toggleLines}>
+              <a className={Styles.readmore} onClick={this.toggleLines}>
                 {more}
               </a>
             </span>
           }
           onTruncate={this.handleTruncate}
         >
-          <div className="bodycontent">{this.props.body}</div>
+          <div className={Styles.bodyContent}>{this.props.body}</div>
         </Truncate>
         {!truncated &&
           expanded && (
             <span>
-              <a className="readmore" onClick={this.toggleLines}>
+              <a className={Styles.readmore} onClick={this.toggleLines}>
                 {less}
               </a>
             </span>

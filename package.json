@@ -9,7 +9,8 @@
   },
   "jest": {
     "transform": {
-      "^.+\\.(jsx|js)?$": "<rootDir>/node_modules/babel-jest"
+      "^.+\\.(jsx|js)?$": "<rootDir>/node_modules/babel-jest",
+      ".+\\.(css|styl|less|sass|scss)$": "<rootDir>/node_modules/jest-css-modules-transform"
     },
     "moduleNameMapper": {
       "\\.css$": "identity-obj-proxy"
@@ -38,6 +39,7 @@
     "seed": "node database/seed.js"
   },
   "dependencies": {
+    "jest-css-modules": "^1.1.0",
     "react": "^16.6.0",
     "react-dom": "^16.6.0"
   },
@@ -63,6 +65,7 @@
     "identity-obj-proxy": "^3.0.0",
     "isomorphic-fetch": "^2.2.1",
     "jest": "^23.6.0",
+    "jest-css-modules-transform": "^2.1.1",
     "mongodb": "^3.1.8",
     "mongoose": "^5.3.6",
     "morgan": "^1.9.0",
@@ -81,8 +84,6 @@
     "redux-test-utils": "^0.3.0",
     "redux-thunk": "^2.3.0",
     "regenerator-runtime": "^0.12.1",
-    "sass": "^1.14.3",
-    "sass-loader": "^7.1.0",
     "sinon": "^7.1.0",
     "style": "0.0.3",
     "style-loader": "^0.23.1",

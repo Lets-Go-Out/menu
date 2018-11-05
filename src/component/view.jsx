@@ -1,5 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
+import Styles from "./css/view.css";
+import styles from "./css/menu.css";
 
 export class View extends React.Component {
   constructor(props) {
@@ -10,7 +12,7 @@ export class View extends React.Component {
     window.addEventListener("scroll", this.handleScroll);
   }
   handleScroll() {
-    var container = document.getElementsByClassName("container-2");
+    var container = document.getElementsByClassName(`${styles["container-2"]}`);
     if (container.length) {
       var offset = container[0].offsetHeight;
       var offset2 = container[0].offsetTop;
@@ -31,7 +33,10 @@ export class View extends React.Component {
     return (
       <div>
         <div style={viewFullStyle}>
-          <button id={this.props.viewFull} onClick={this.props.viewModeChange}>
+          <button
+            id={Styles[this.props.viewFull]}
+            onClick={this.props.viewModeChange}
+          >
             {this.props.viewmode === "container-1" ? "View All" : "View Less"}
           </button>
         </div>
