@@ -10,7 +10,9 @@ const entries = props => {
         <span className={styles.price}>{props.item[selected].price}</span>
       </div>
       <div />
-      <div>{props.item[selected].description}</div>
+      <div className={styles.description}>
+        {props.item[selected].description}
+      </div>
     </div>
   );
 };

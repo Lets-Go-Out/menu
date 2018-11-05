@@ -37,8 +37,7 @@ export class Menu extends React.Component {
       var mid = 1;
     }
     return (
-      <div className={Styles.MotherContainer}>
-        <div className={Styles.OtherComponents} />
+      <div>
         <div>
           <h2>Menu</h2>
           <Cheats />

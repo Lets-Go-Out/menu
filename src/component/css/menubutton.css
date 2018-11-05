@@ -1,0 +1,7 @@
+.MenuNavButton2 {
+  border: 2px solid #da3743;
+  padding: calc(8px - 1px) calc(16px - 1px);
+}
+.MenuNavButton {
+  padding: calc(8px - 1px) calc(16px - 1px);
+}

@@ -14,7 +14,7 @@ class Special extends React.Component {
   render() {
     if (this.props.special.length) {
       return (
-        <div>
+        <div className={styles.greyline}>
           <h2>Special</h2>
           <div className={styles.row}>
             {this.props.special.map((e, i) => (

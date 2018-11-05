@@ -1,0 +1,22 @@
+.column {
+  flex: 50%;
+  width: 50%;
+}
+.bodycontent {
+  font-weight: 600;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.headcontent {
+  font-weight: 600;
+  display: block;
+}
+.readmore {
+  font-weight: 400;
+  display: block;
+  color: palevioletred;
+}
+.readmore:hover {
+  cursor: pointer;
+  color: red;
+}
