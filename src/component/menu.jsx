@@ -22,6 +22,7 @@ export class Menu extends React.Component {
   }
 
   render() {
+    console.log(this.props.viewmode);
     if (this.props.entry.length > 1) {
       var mid = Math.ceil(this.props.entry.length / 2);
     } else {
@@ -51,7 +52,11 @@ export class Menu extends React.Component {
               </div>
             </div>
             <div
-              id={this.props.viewmode === "container-1" ? Styles.blocker : ""}
+              id={
+                this.props.viewmode === "container-1"
+                  ? Styles.blocker
+                  : Styles.nonblocker
+              }
             />
           </div>
           <View />
@@ -81,6 +86,3 @@ export default connect(
 {
   /* <div className={this.props.viewmode}></div> */
 }
-// this.props.viewmode === "container-2"
-//                   ? Styles.blocker
-//                   : Styles.nonblocker

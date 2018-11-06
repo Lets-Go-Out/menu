@@ -19,7 +19,7 @@ export class View extends React.Component {
     }
     if (
       container.length &&
-      (window.scrollY > offset || window.scrollY < offset2)
+      (window.scrollY > offset + 50 || window.scrollY < offset2 - 500)
     ) {
       this.props.viewChange();
     }
