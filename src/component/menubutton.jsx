@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import Styles from "./css/menubutton.css";
 
 export class Button extends React.Component {
   constructor(props) {
@@ -13,8 +14,9 @@ export class Button extends React.Component {
     return (
       <button
         className={
-          "menu-nav" +
-          (this.props.item === this.props.selected ? " selected" : "")
+          this.props.item === this.props.selected
+            ? Styles.MenuNavButton2
+            : Styles.MenuNavButton
         }
         onClick={this.clickHandler}
       >

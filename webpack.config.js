@@ -7,6 +7,9 @@ module.exports = {
     path: __dirname + "/public",
     filename: "bundle.js"
   },
+  resolve: {
+    extensions: [".js", ".jsx", ".css"]
+  },
   module: {
     rules: [
       {
@@ -21,7 +24,16 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"]
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              sourceMap: true,
+              modules: true
+            }
+          }
+        ]
       }
     ]
   },

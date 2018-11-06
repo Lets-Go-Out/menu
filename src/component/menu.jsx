@@ -6,15 +6,7 @@ import { connect } from "react-redux";
 import { fetchMenuData } from "../APICalls/fetch.js";
 import Cheats from "./cheats.jsx";
 import Special from "./special.jsx";
-
-const infoStyle = {
-  float: "left",
-  width: "50%",
-  height: "50%",
-  borderStyle: "solid",
-  borderWidth: "2px",
-  textAlign: "center"
-};
+import Styles from "./css/menu.css";
 
 export class Menu extends React.Component {
   constructor(props) {
@@ -30,36 +22,42 @@ export class Menu extends React.Component {
   }
 
   render() {
+    console.log(this.props.viewmode);
     if (this.props.entry.length > 1) {
       var mid = Math.ceil(this.props.entry.length / 2);
     } else {
       var mid = 1;
     }
     return (
-      <div className="MotherContainer">
-        <div className="OtherComponents" />
+      <div>
         <div>
           <h2>Menu</h2>
           <Cheats />
-          <nav id="menuNav">
+          <nav id={Styles.menuNav}>
             {this.props.navmenu.map((e, i) => (
               <MenuButtons key={i} item={e} />
             ))}
           </nav>
-          <div className={this.props.viewmode}>
-            <div className="container">
-              <div className="leftContainer">
+          <div className={Styles[this.props.viewmode]}>
+            <div className={Styles.container}>
+              <div className={Styles.leftContainer}>
                 {this.props.entry.slice(0, mid).map((e, i) => (
                   <Entries key={i} item={e} selected={this.props.selected} />
                 ))}
               </div>
-              <div className="rightContainer">
+              <div className={Styles.rightContainer}>
                 {this.props.entry.slice(mid).map((e, i) => (
                   <Entries key={i} item={e} selected={this.props.selected} />
                 ))}
               </div>
             </div>
-            <div id={this.props.viewmode === "container-1" ? "blocker" : ""} />
+            <div
+              id={
+                this.props.viewmode === "container-1"
+                  ? Styles.blocker
+                  : Styles.nonblocker
+              }
+            />
           </div>
           <View />
         </div>
@@ -84,3 +82,7 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Menu);
+
+{
+  /* <div className={this.props.viewmode}></div> */
+}

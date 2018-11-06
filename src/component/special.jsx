@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { fetchSpecial } from "../APICalls/fetch.js";
 import Specialentries from "./specialentries.jsx";
+import styles from "./css/special.css";
 
 class Special extends React.Component {
   constructor(props) {
@@ -13,9 +14,9 @@ class Special extends React.Component {
   render() {
     if (this.props.special.length) {
       return (
-        <div>
+        <div className={styles.greyline}>
           <h2>Special</h2>
-          <div className="row">
+          <div className={styles.row}>
             {this.props.special.map((e, i) => (
               <Specialentries head={e.head} key={i} body={e.body} />
             ))}
