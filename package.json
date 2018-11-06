@@ -54,7 +54,7 @@
     "babel-loader": "^8.0.4",
     "body-parser": "^1.18.3",
     "cors": "^2.8.4",
-    "css-loader": "^1.0.0",
+    "css-loader": "^1.0.1",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.6.0",
     "enzyme-redux": "^0.2.1",

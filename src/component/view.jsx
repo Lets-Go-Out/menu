@@ -19,7 +19,7 @@ export class View extends React.Component {
     }
     if (
       container.length &&
-      (window.scrollY > offset + 300 || window.scrollY < offset2 - 500)
+      (window.scrollY > offset || window.scrollY < offset2)
     ) {
       this.props.viewChange();
     }
@@ -62,3 +62,5 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(View);
+
+// id={Styles[this.props.viewFull]}

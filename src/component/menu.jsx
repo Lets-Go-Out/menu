@@ -8,15 +8,6 @@ import Cheats from "./cheats.jsx";
 import Special from "./special.jsx";
 import Styles from "./css/menu.css";
 
-const infoStyle = {
-  float: "left",
-  width: "50%",
-  height: "50%",
-  borderStyle: "solid",
-  borderWidth: "2px",
-  textAlign: "center"
-};
-
 export class Menu extends React.Component {
   constructor(props) {
     super(props);
@@ -86,3 +77,10 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Menu);
+
+{
+  /* <div className={this.props.viewmode}></div> */
+}
+// this.props.viewmode === "container-2"
+//                   ? Styles.blocker
+//                   : Styles.nonblocker

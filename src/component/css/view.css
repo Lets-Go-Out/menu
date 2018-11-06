@@ -12,6 +12,7 @@
   width: 18rem;
   border-radius: 2px;
   display: inline-block;
+  position: relative;
   z-index: 10;
 }
 #viewFull2 {

@@ -5,6 +5,11 @@
 .OtherComponents {
   height: 800px;
 }
+.containerbig {
+  display: block;
+  position: relative;
+  height: auto;
+}
 #menuNav {
   display: flex;
   padding: 20px;
@@ -19,7 +24,7 @@
   display: flex;
 }
 .leftContainer {
-  height: 100%;
+  height: auto;
   width: 50%;
   position: relative;
   display: inline-block;
@@ -27,7 +32,7 @@
   text-align: left;
 }
 .rightContainer {
-  height: 100%;
+  height: auto;
   width: 50%;
   position: relative;
   display: inline-block;
@@ -35,12 +40,13 @@
   text-align: left;
 }
 .container-1 {
-  height: 350px;
-  position: relative;
+  height: 200px;
+  position: inherit;
   overflow: hidden;
 }
 .container-2 {
-  height: auto;
+  position: relative;
+  height: inherit;
 }
 #blocker {
   content: " ";
@@ -51,7 +57,10 @@
   position: absolute;
   left: 0;
   bottom: 0;
-  z-index: 0;
+  padding: 0;
+  margin: 0;
+  z-index: 10;
+  -webkit-box-direction: reverse;
   background-image: -webkit-gradient(
     linear,
     left bottom,
@@ -61,6 +70,17 @@
   );
   background-image: linear-gradient(0deg, #fff, rgba(255, 255, 255, 0));
   background-color: rgba(255, 255, 255, 0.2);
+}
+#nonblocker {
+  content: " ";
+  width: 100%;
+  height: auto;
+  display: block;
+  text-align: center;
+  position: relative;
+  left: 0;
+  bottom: 0;
+  z-index: 0;
 }
 @media screen and (max-width: 900px) {
   .MotherContainer {
