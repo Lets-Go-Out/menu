@@ -30,13 +30,20 @@ class Specialentry extends React.Component {
   }
   render() {
     const { more, less, lines } = this.props;
-
+    const obj = {
+      display: "block",
+      fontSize: "1.17em",
+      marginBlockStart: "1em",
+      marginBlockEnd: "1em",
+      marginInlineStart: "0px",
+      marginInlineEnd: "0px"
+    };
     const { expanded, truncated } = this.state;
     return (
       <div className={Styles.column}>
-        <p className={Styles.headContent}>{this.props.head}</p>
+        <p className={Styles.headcontent}>{this.props.head}</p>
         <Truncate
-          className={Styles.bodyContent}
+          className={Styles.bodycontent}
           lines={!expanded && lines}
           ellipsis={
             <span>
@@ -48,7 +55,7 @@ class Specialentry extends React.Component {
           }
           onTruncate={this.handleTruncate}
         >
-          <div className={Styles.bodyContent}>{this.props.body}</div>
+          <div className={Styles.bodycontent}>{this.props.body}</div>
         </Truncate>
         {!truncated &&
           expanded && (
