@@ -34,7 +34,7 @@
   },
   "scripts": {
     "build": "webpack --watch",
-    "start": "nodemon ./server/server.js",
+    "start": "nodemon server/server.js",
     "test": "jest --coverage",
     "seed": "node database/seed.js"
   },
@@ -66,10 +66,10 @@
     "isomorphic-fetch": "^2.2.1",
     "jest": "^23.6.0",
     "jest-css-modules-transform": "^2.1.1",
+    "mongo-seeding": "^3.0.0",
     "mongodb": "^3.1.8",
     "mongoose": "^5.3.6",
     "morgan": "^1.9.0",
-    "mysql": "^2.16.0",
     "nodemon": "^1.18.4",
     "path": "^0.12.7",
     "prettier": "^1.14.3",

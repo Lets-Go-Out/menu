@@ -1,0 +1,17 @@
+version: "3"
+services:
+  menudb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+
+  menu:
+    build: .
+    environment:
+      - PORT=3001
+      - NODE_ENV=dev
+      - ENV_NAME=local
+    ports:
+      - "3001:3001"
+    depends_on:
+      - menudb
