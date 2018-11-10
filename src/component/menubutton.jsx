@@ -35,7 +35,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     clickDispatcher: (selected, restaurantID) => {
-      let url = `/restaurants/${restaurantID}/menu/`;
+      let url = `http://54.215.211.244/restaurants/${restaurantID}/menu/`;
       let option = {
         method: "GET",
         headers: {

@@ -9,6 +9,6 @@ COPY ./package.json /src/menu
 
 RUN npm install --production
 
-EXPOSE 80
+EXPOSE 3001
 
 CMD npm start
