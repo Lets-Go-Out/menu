@@ -13,6 +13,7 @@ export const fetchMenuData = (restaurantID, fetchMenuData, fetchData) => {
       fetch(url + restaurantID + "/menu/" + data[0], option)
         .then(response1 => response1.json())
         .then(data1 => {
+          console.log(data, data1);
           fetchMenuData(data);
           fetchData(data1, data[0]);
         });

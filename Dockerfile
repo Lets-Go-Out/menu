@@ -4,7 +4,7 @@ RUN mkdir -p /src/menu
 WORKDIR /src/menu
 COPY . /src/menu
 
-RUN npm install
+RUN npm install --production
 
 EXPOSE 3001
 
