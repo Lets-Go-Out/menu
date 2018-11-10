@@ -34,7 +34,7 @@
   },
   "scripts": {
     "build": "webpack --watch",
-    "start": "nodemon server/server.js",
+    "start": "node server/server.js",
     "test": "jest --coverage",
     "seed": "node database/seed.js"
   },
