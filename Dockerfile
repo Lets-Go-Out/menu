@@ -6,6 +6,6 @@ COPY . /src/menu
 
 RUN npm install --production
 
-EXPOSE 3001
+EXPOSE 80
 
 CMD npm start
