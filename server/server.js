@@ -5,7 +5,7 @@ const cors = require("cors");
 const parser = require("body-parser");
 const faker = require("faker");
 const app = express();
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 80;
 // const { Items, Special } = require("../database/connection.js");
 const sorter = require("./sorter.js");
 
