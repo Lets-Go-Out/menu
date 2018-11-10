@@ -6,13 +6,34 @@ const parser = require("body-parser");
 const faker = require("faker");
 const app = express();
 const port = process.env.PORT || 3001;
-const { Items, Special } = require("../database/connection.js");
+// const { Items, Special } = require("../database/connection.js");
 const sorter = require("./sorter.js");
 
 app.use(morgan("dev"));
 app.use(cors());
 app.use(parser.json());
 app.use(express.static(path.join(__dirname, "../public")));
+
+/////////////
+const { Items, Special } = require("../database/connection.js");
+const { fakerList, fakerList2 } = require("../database/faker.js");
+
+fakerList.forEach((e, i) => {
+  let ID = e.restaurantID.toString();
+  let obj = { restaurantID: ID };
+  obj[e.menu] = e;
+  let menu = new Items(obj);
+  menu.save();
+});
+fakerList2.forEach((e, i) => {
+  let special = new Special({
+    restaurantID: e.restaurantID,
+    head: e.head,
+    body: e.body
+  });
+  special.save();
+});
+/////////////
 
 app.get("/restaurants/:restaurantID/menu/:menu", (req, res) => {
   let menu = req.params.menu;
