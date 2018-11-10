@@ -5,7 +5,6 @@ services:
     ports:
       - "27017:27017"
   menu:
-    image: hanlinaunghack/menufec:latest
     build: .
     environment:
       WAIT_HOSTS: menudb:27017
