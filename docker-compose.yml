@@ -4,13 +4,11 @@ services:
     image: mongo:latest
     ports:
       - "27017:27017"
-
   menu:
+    image: hanlinaunghack/menufec:latest
     build: .
     environment:
-      - PORT=3001
-      - NODE_ENV=dev
-      - ENV_NAME=local
+      WAIT_HOSTS: menudb:27017
     ports:
       - "3001:3001"
     depends_on:
