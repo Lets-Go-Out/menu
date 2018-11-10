@@ -1,6 +1,5 @@
 // let url = "http://127.0.0.1:3001/restaurants/";
-let url =
-  "http://ec2-18-144-4-173.us-west-1.compute.amazonaws.com:3001/restaurants/";
+let url = "http://127.0.0.1:3001/restaurants/";
 let option = {
   method: "GET",
   headers: {
