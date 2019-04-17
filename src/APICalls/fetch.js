@@ -23,6 +23,7 @@ export const fetchMenuData = (restaurantID, fetchMenuData, fetchData) => {
 export const wholeRestaurantChange = (restaurantID, wholeChange) => {
   fetch(url + restaurantID + "/menuCount", option)
     .then(response => {
+      console.log(response.json(), "this is the menu count")
       return response.json();
     })
     .then(data => {

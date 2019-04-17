@@ -42,3 +42,20 @@ From within the root directory:
 npm install -g webpack
 npm install
 ```
+
+
+##CRUD Routes
+
+~GET routes as required by front-end~
+- /restaurants/:restaurantID/menu/:menu
+- /restaurants/:restaurantID/menuCount
+- /restaurants/:restaurantID/special
+
+~POST routes ~
+- /restaurants/:restaurantID/menu/add-new
+
+~PATCH routes ~
+- /restaurants/:restaurantID/menu/:menu/edit
+
+~DELETE routes ~
+- /restaurants/:restaurantID/menu/:menu/delete
