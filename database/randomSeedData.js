@@ -73,7 +73,7 @@ module.exports = {
     'Pineapple and harissa salad',
     'Thai basil and bouquet garni salad'
   ],
-  menuDescription: [
+  menuDescriptions: [
     'A light yoghurt made with saffron and harissa',
     'Borscht and fresh caraway served on a bed of lettuce',
     'A crisp salad featuring fresh jalapeno and savoy cabbage',
@@ -92,6 +92,51 @@ module.exports = {
     'Beef tomatoes and peppermint served on a bed of lettuce',
     'Ricotta and fresh pomegranate served on a bed of lettuce',
     'Fresh quinoa and nutmeg served on a bed of lettuce',
-    'Black cardamom and licorice served on a bed of lettuce'
+    'Black cardamom and licorice served on a bed of lettuce', 
+    'Yellow grapefruit and padron served on a bed of lettuce'
+  ], 
+  alcoholItems: [
+    "Sugar Tremor",
+    "Gin & Tonic",
+    "Mimosa",
+    "Boulevardier",
+    "Spirit Sake",
+    "Piña Colada",
+    "Electric Lemonade",
+    "Sex on the Beach",
+    "Whiskey Sour",
+    "Margarita",
+    "Ginger Starligh",
+    "Mint Julep",
+    "Chambord Kir Royale",
+    "Mai Tai",
+    "Long Island Iced Tea",
+    "Dirty Martini",
+    "Cowboy Coffee",
+    "Irish Car Bomb",
+    "Hurricane",
+    "Seven and Seven"
+  ], 
+  alcoholDescriptions: [
+    "Light orange with lots of bubbles and a grape floating in it. The drink smells horrible and tastes like medicine. It temporarily increases the drinker's confidence.",
+    "Dark amber with bronze sparkles and chunks of meat floating in it. The drink smells like pears and tastes like pea soup.",
+    "Light red with silvery swirls and droplets running down the sides of the glass. The drink smells like oranges and tastes like honey. It causes the drinker to temporarily lose their sense of taste.",
+    "Copper with pale pink swirls and served in a plain mug. The drink smells like pears and tastes horrible. If a local buys it for a traveler, it is customary for the traveler to tell a story.",
+    "Pink with silvery bubbles and an unidentifiable spice on the rim of the glass. The drink smells somewhat like fine wine and tastes somewhat like coffee. It temporarily stains the tongue and teeth.",
+    "Beige with red swirls and salt on the rim of the glass. The drink smells strongly of nuts and tastes sweet. The recipe is rumoured to include crushed bones.",
+    "Ruby with pale pink swirls and served in a small cup. The drink smells like the sea and tastes great. It is only served after sundown.",
+    "Pale gold with gold flecks and served in a pewter mug. The drink smells like perfume and tastes like chicken soup. It is never drunk by the locals.",
+    "Medium blue with black swirls and served in a shot glass. The drink smells like vomit and tastes somewhat like raw meat. It causes blurred vision after only a few sips.",
+    "Medium blue with pale pink swirls and a bit of smoke coming from it. The drink smells like cave rock and tastes like ambrosia. Sphinx tears are rumoured to be a key ingredient.",
+    "Clear as glass with an oily texture and spices mixed in. The drink smells like lime and tastes like candy. It causes blurred vision after only a few sips.",
+    "Lime green with blue swirls and served in a large mug. The drink smells like caramel and tastes somewhat like coffee. It causes sleepiness in the drinker.",
+    "Emerald with black swirls and salt on the rim of the glass. The drink smells nice and tastes spicy. It is rumoured to glow in the dark.",
+    "Smokey grey with brown swirls and an unidentifiable spice on the rim of the glass. The drink smells like blueberries and tastes minty. It is made with a secret recipe.",
+    "Smokey grey with many bubbles and served in a plain mug. The drink smells like perfume and tastes like urine. It causes mild coughing.",
+    "Magenta with a slimy texture and some ice. The drink smells somewhat like whiskey and tastes like licorice. It is highly caffinated.",
+    "Smokey grey with small pieces of candy and chunks of meat floating in it. The drink smells like ambrosia and tastes hellish. It is served freezing.",
+    "Copper with red flecks and served in a plain glass. The drink smells somewhat like champagne and tastes spoiled. Two tankards full is as filling as an entire meal.",
+    "Burnt orange with a slimy texture and lots of ice. The drink smells like cow dung and tastes like medicine. It is a mild aphrodisiac.",
+    "Pale gold with lots of bubbles and a pear slice on the edge of the glass. The drink smells like cow dung and tastes odd. It is rumoured to cause truthfulness in the drinker."
   ]
 }

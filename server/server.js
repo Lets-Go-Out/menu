@@ -9,7 +9,7 @@ const port = process.env.PORT || 80;
 // const { Items, Special } = require("../database/connection.js");
 // const sorter = require("./sorter.js");
 
-const dataGeneration = require('../database/dataGeneration')
+const csvGeneration = require('../database/csvGeneration')
 
 app.use(morgan("dev"));
 app.use(cors());
