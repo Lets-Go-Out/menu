@@ -17,6 +17,7 @@ const randomNumberGenerator = function(min, max, options){
   return Math.floor(Math.random() * (max - min)) + min
 } 
 
+
 // let mealIndex = randomNumberGenerator(0, 20)
 // let menuItem = seedData.menuItems[mealIndex]
 // let mealDescriptionIndex = randomNumberGenerator(0, 20)
@@ -141,18 +142,3 @@ let specialFilePath = path.join(__dirname + '/records');
 // fs.writeFileSync(`${dinnerFilePath}/dinner2.csv`, dinnerData);
 // fs.writeFileSync(`${alcoholFilePath}/alcohol.csv`, alcoholData);
 // fs.writeFileSync(`${specialFilePath}/special2.csv`, specialData); 
-
-/* ////////////Reminder of DB schema to aid in CSV file creation //////////// */
-//meals: 
-//restaurant_id(int not null) unique
-//meal_name: String (3-5 words)
-//meal_description: (String, 15-35 words)
-//price: (String, 12-60)
-
-//specials:
-//restaurant_id: (FOREIGN KEY)
-//date: date range
-//meal_name: (String, 3-5 words)
-//meal_description: (String, 12-60)
-
-
