@@ -36,16 +36,18 @@
     "build": "webpack --watch",
     "start": "node server/server.js",
     "test": "jest --coverage",
-    "seed": "node database/seed.js"
+    "seed": "node database/seed.js",
+    "server-dev": "nodemon server/server.js"
   },
   "dependencies": {
-    "mongoose": "^5.3.11",
-    "mongodb": "^3.1.8",
-    "express": "^4.16.4",
     "body-parser": "^1.18.3",
     "cors": "^2.8.4",
+    "express": "^4.16.4",
     "faker": "^4.1.0",
-    "morgan": "^1.9.0"
+    "mongodb": "^3.1.8",
+    "mongoose": "^5.3.11",
+    "morgan": "^1.9.0",
+    "random-words": "^1.1.0"
   },
   "devDependencies": {
     "webpack": "^4.23.1",

@@ -1,6 +1,7 @@
 const faker = require("faker");
 const numberofentries = 7000;
 const numberofrestaurants = 100;
+
 var fakerList = Array(numberofentries).fill("0");
 var fakerList2 = Array(numberofrestaurants).fill("0");
 const nameGenerator = () => {
@@ -10,7 +11,7 @@ const nameGenerator = () => {
     output = output.concat(" ", faker.random.word());
   }
   return output;
-};
+}; 
 const descriptionGenerator = () => {
   let n = Math.ceil(Math.random() * 9) + 4;
   let output = faker.random.words();
