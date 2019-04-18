@@ -42,8 +42,8 @@ const generateIngredients = function(){
 };
 
 const generateRandomDate = function(){
-  let threeMonths = ["March", "April", "May"];
-  return new Date(`${threeMonths[randomNumberGenerator(0, 3)]} ${randomNumberGenerator(0, 29)}, 2019 10:24:00`);
+  let threeMonths = ["03", "04", "05"];
+  return (`${threeMonths[randomNumberGenerator(0, 3)]}-${randomNumberGenerator(10, 29)}-2019`);
 };
 
 const generateMealResults = function(iteratorStart=0, iteratorStop=10){
@@ -94,7 +94,7 @@ const generateSpecialResults = function(){
 };
 
 /* //////////// Uncomment each function to generate CSV files //////////// */
-// restaurant_id = 0000000
+restaurant_id = 1000000
 // let breakfastData = 
 // `restaurant_id^date^meal_name^meal_description^ingredient_one^ingredient_two^ingredient_three^ingredient_four^ingredient_five^price
 // ${generateMealResults(0, 1000000)}
@@ -104,7 +104,7 @@ const generateSpecialResults = function(){
 // `restaurant_id^date^meal_name^meal_description^ingredient_one^ingredient_two^ingredient_three^ingredient_four^ingredient_five^price
 // ${generateMealResults(0, 1000000)}
 // `
-// restaurant_id = 2000000
+// restaurant_id = 3000000
 // let lunchData = 
 // `restaurant_id^date^meal_name^meal_description^ingredient_one^ingredient_two^ingredient_three^ingredient_four^ingredient_five^price
 // ${generateMealResults(0, 1000000)}
