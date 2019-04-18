@@ -36,6 +36,7 @@
     "build": "webpack --watch",
     "start": "node server/server.js",
     "test": "jest --coverage",
+    "csv-generate": "database/csvGeneration.js",
     "seed": "node database/seed.js",
     "server-dev": "nodemon server/server.js"
   },

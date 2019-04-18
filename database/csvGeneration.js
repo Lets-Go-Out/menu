@@ -2,8 +2,7 @@ const seedData = require('./randomSeedData')
 const fs = require('fs')
 const path = require('path')
 
-// let fileNameIngredients = path.join(__dirname + '/records') //100000 third of ingredients that exist in the world
-let restaurant_id = 0;
+// let restaurant_id = 0;
 
 const randomNumberGenerator = function(min, max, options){
   min = Math.ceil(min);
@@ -17,13 +16,11 @@ const randomNumberGenerator = function(min, max, options){
   return Math.floor(Math.random() * (max - min)) + min
 } 
 
-
 // let mealIndex = randomNumberGenerator(0, 20)
 // let menuItem = seedData.menuItems[mealIndex]
 // let mealDescriptionIndex = randomNumberGenerator(0, 20)
 // let mealDescription = seedData.menuItems[mealDescriptionIndex]
 // let price = randomNumberGenerator(15, 50, 'price')
-
 
 /* //////////// helper functions embedded in CSV file generator-created to save space //////////// */
 const generateIngredients = function(){
@@ -94,7 +91,7 @@ const generateSpecialResults = function(){
 };
 
 /* //////////// Uncomment each function to generate CSV files //////////// */
-restaurant_id = 1000000
+// restaurant_id = 1000000
 // let breakfastData = 
 // `restaurant_id^date^meal_name^meal_description^ingredient_one^ingredient_two^ingredient_three^ingredient_four^ingredient_five^price
 // ${generateMealResults(0, 1000000)}
