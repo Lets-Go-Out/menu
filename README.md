@@ -55,7 +55,7 @@ npm install
 - /restaurants/:restaurantID/menu/add-new
 
 ~PATCH routes ~
-- /restaurants/:restaurantID/menu/:menu/edit
+- /restaurants/:restaurantID/menu/:menu/edit 
 
 ~DELETE routes ~
 - /restaurants/:restaurantID/menu/:menu/delete

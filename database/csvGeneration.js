@@ -15,7 +15,7 @@ const randomNumberGenerator = function(min, max, options){
     return retStr
   }
   return Math.floor(Math.random() * (max - min)) + min
-}
+} 
 
 // let mealIndex = randomNumberGenerator(0, 20)
 // let menuItem = seedData.menuItems[mealIndex]
