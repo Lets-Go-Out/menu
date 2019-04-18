@@ -23,6 +23,8 @@ const randomNumberGenerator = function(min, max, options){
 // let mealDescription = seedData.menuItems[mealDescriptionIndex]
 // let price = randomNumberGenerator(15, 50, 'price')
 
+
+/* //////////// helper functions embedded in CSV file generator-created to save space //////////// */
 const generateIngredients = function(){
   let numIngredients = randomNumberGenerator(3, 6);
   let ingredients = [];
@@ -78,7 +80,7 @@ const generateAlcoholResults = function(iteratorStart=0, iteratorStop=10){
 
 const generateSpecialResults = function(){
   let str = ``
-  for(var i = 0; i < 10; i++){
+  for(var i = 0; i < 1000000; i++){
   str+= restaurant_id + "^" +
     generateRandomDate() + "^" +
     seedData.menuItems[randomNumberGenerator(0, 20)] + "^" +
@@ -90,50 +92,60 @@ const generateSpecialResults = function(){
   return str;
 };
 
+/* //////////// Uncomment each function to generate CSV files //////////// */
+// restaurant_id = 0000000
+// let breakfastData = 
+// `restaurant_id^date^meal_name^meal_description^ingredient_one^ingredient_two^ingredient_three^ingredient_four^ingredient_five^price
+// ${generateMealResults(0, 1000000)}
+// `
+// restaurant_id = 1000000
+// let brunchData = 
+// `restaurant_id^date^meal_name^meal_description^ingredient_one^ingredient_two^ingredient_three^ingredient_four^ingredient_five^price
+// ${generateMealResults(0, 1000000)}
+// `
+// restaurant_id = 2000000
+// let lunchData = 
+// `restaurant_id^date^meal_name^meal_description^ingredient_one^ingredient_two^ingredient_three^ingredient_four^ingredient_five^price
+// ${generateMealResults(0, 1000000)}
+// `
+// restaurant_id = 3000000
+// let dinnerData = 
+// `restaurant_id^date^meal_name^meal_description^ingredient_one^ingredient_two^ingredient_three^ingredient_four^ingredient_five^price
+// ${generateMealResults(0, 1000000)}
+// `
 
-let breakfastData = 
-`restaurant_id^date^meal_name^meal_description^ingredient_one^ingredient_two^ingredient_three^ingredient_four^ingredient_five^price
-${generateMealResults()}
-`
-let brunchData = 
-`restaurant_id^date^meal_name^meal_description^ingredient_one^ingredient_two^ingredient_three^ingredient_four^ingredient_five^price
-${generateMealResults()}
-`
-let lunchData = 
-`restaurant_id^date^meal_name^meal_description^ingredient_one^ingredient_two^ingredient_three^ingredient_four^ingredient_five^price
-${generateMealResults()}
-`
-let dinnerData = 
-`restaurant_id^date^meal_name^meal_description^ingredient_one^ingredient_two^ingredient_three^ingredient_four^ingredient_five^price
-${generateMealResults()}
-`
-let alcoholData = 
-`restaurant_id^date^drink_name^drink_description^price
-${generateAlcoholResults()}
-`
-let specialData = 
-`restaurant_id^date^special_name^special_description^price
-${generateSpecialResults()}
-`
+// restaurant_id = 3000000
+// let alcoholData = 
+// `restaurant_id^date^drink_name^drink_description^price
+// ${generateAlcoholResults(0, 1000000)}
+// `
 
-let breakfastFilePath = path.join(__dirname + '/records') ;
+// restaurant_id = 1000000
+// let specialData = 
+// `restaurant_id^date^special_name^special_description^price
+// ${generateSpecialResults(0, 1000000)}
+// `
+
+/* //////////// Where each file will be outputted //////////// */
+let breakfastFilePath = path.join(__dirname + '/records');
 let brunchFilePath = path.join(__dirname + '/records');
 let lunchFilePath = path.join(__dirname + '/records');
 let dinnerFilePath = path.join(__dirname + '/records');
 let alcoholFilePath = path.join(__dirname + '/records');
-let specialFilePath = path.join(__dirname + '/records');
+let specialFilePath = path.join(__dirname + '/records'); 
 
-// fs.writeFileSync(`${breakfastFilePath}/breakfast.csv`, breakfastData);
+/* //////////// Actual writing of the files using the data above...each sequenced file is broken up into 1M entries to prevent crashing //////////// */
+// fs.writeFileSync(`${breakfastFilePath}/breakfast2.csv`, breakfastData);
 // fs.writeFileSync(`${brunchFilePath}/brunch.csv`, brunchData);
-// fs.writeFileSync(`${lunchFilePath}/lunch.csv`, lunchData);
-// fs.writeFileSync(`${dinnerFilePath}/dinner.csv`, dinnerData);
+// fs.writeFileSync(`${lunchFilePath}/lunch2.csv`, lunchData);
+// fs.writeFileSync(`${dinnerFilePath}/dinner2.csv`, dinnerData);
 // fs.writeFileSync(`${alcoholFilePath}/alcohol.csv`, alcoholData);
-fs.writeFileSync(`${specialFilePath}/special.csv`, specialData);
+// fs.writeFileSync(`${specialFilePath}/special2.csv`, specialData); 
 
-
+/* ////////////Reminder of DB schema to aid in CSV file creation //////////// */
 //meals: 
 //restaurant_id(int not null) unique
-//meal_name: INT (foreign key)
+//meal_name: String (3-5 words)
 //meal_description: (String, 15-35 words)
 //price: (String, 12-60)
 
@@ -143,15 +155,4 @@ fs.writeFileSync(`${specialFilePath}/special.csv`, specialData);
 //meal_name: (String, 3-5 words)
 //meal_description: (String, 12-60)
 
-//ingredient table:
-//id: FOREIGN KEY
-//ingredient name: (String: not null, 5-13 characters, 3-5 words)
 
-//menu items:
-//id: FOREIGN KEY
-//meal_name: (String 3-5 words)
-//ingredient1: (String)
-//ingredient2: (String)
-//ingredient3: (String)
-//ingredient4: (String)
-//ingredient5: (String)
