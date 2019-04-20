@@ -55,6 +55,15 @@ CREATE TABLE dinner (
   ingredient_five varchar(20) 
 );
 
+CREATE TABLE happy_hour (
+  item_id SERIAL PRIMARY KEY,
+  restaurant_id int NOT NULL,
+  date  date,
+  price varchar(8),
+  drink_name varchar(30),
+  drink_description  varchar(200)
+);
+
 CREATE TABLE alcohol (
   item_id SERIAL PRIMARY KEY,
   restaurant_id int NOT NULL,

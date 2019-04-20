@@ -6,8 +6,8 @@ const parser = require("body-parser");
 const app = express();
 const port = process.env.PORT || 80;
 
-const connection = require('../database/postConnect')
-// const csvGeneration = require('../database/csvGeneration')
+// const connection = require('../database/postConnect')
+const csvGeneration = require('../database/csvGenerationPost')
 
 app.use(morgan("dev"));
 app.use(cors());
