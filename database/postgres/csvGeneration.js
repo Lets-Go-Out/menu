@@ -1,4 +1,4 @@
-const seedData = require('./randomSeedData')
+const seedData = require('../randomSeedData')
 const fs = require('fs')
 const path = require('path')
 // const recordsFilePath = path.join(__dirname + '/records');
@@ -53,7 +53,6 @@ const generateSpecialResults = function(iteratorStart, iteratorStop, writer, enc
       randomNumberGenerator(15, 50, 'price') +  "^" +
       seedData.menuItems[randomNumberGenerator(0, 20)] + "^" +
       seedData.menuDescriptions[randomNumberGenerator(0, 20)];
-      str+= "\n";
       if(i !== iteratorStart-1){
         str+= "\n";
       }

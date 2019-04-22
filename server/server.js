@@ -6,8 +6,11 @@ const parser = require("body-parser");
 const app = express();
 const port = process.env.PORT || 80;
 
-// const connection = require('../database/postConnect')
-const csvGeneration = require('../database/csvGenerationPost')
+// const connection = require('../database/postgres/seed-psql')
+// const csvGeneration = require('../database/postgres/csvGeneration')
+
+const connection = require('../database/cassandra/seed-cass')
+// const csvGeneration = require('../database/cassandra/csvGeneration')
 
 app.use(morgan("dev"));
 app.use(cors());
@@ -17,8 +20,6 @@ app.use(express.static(path.join(__dirname, "../public")));
 app.listen(port, () => {
   console.log(`server running at: http://localhost:${port}`);
 });
-
-
 
 
 
