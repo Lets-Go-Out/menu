@@ -6,11 +6,11 @@ const parser = require("body-parser");
 const app = express();
 const port = process.env.PORT || 80;
 
-// const connection = require('../database/postgres/seed-psql')
-// const csvGeneration = require('../database/postgres/csvGeneration')
+// const postConnection = require('../database/postgres/queries')
+// const postCsvGeneration = require('../database/postgres/csvGeneration')
 
-const connection = require('../database/cassandra/seed-cass')
-// const csvGeneration = require('../database/cassandra/csvGeneration')
+// const cassConnection = require('../database/cassandra/queries')
+// const cassCsvGeneration = require('../database/cassandra/csvGeneration')
 
 app.use(morgan("dev"));
 app.use(cors());

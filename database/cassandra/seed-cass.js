@@ -1,13 +1,8 @@
 const client = require('./connect')
 
-// const query = COPY menus.restaurant_menus FROM '/Users/jennummerdor/hrphx/sdc/menu/database/cassandra/menus/restaurant_menus/meals.csv' WITH DELIMITER='^';
-
-//(restaurant_id,first_menu,second_menu,third_menu)
-
-const query = `SELECT menu_list FROM menus.restaurant_menus WHERE restaurant_id = 100`
-
-client.execute(query)
-  .then(result => console.log('Here it is:', result))
-  .catch(err => console.error(err))
-
-// INSERT INTO cycling.restaurant_menus(restaurant_id,date,menu_type) VALUES(30,'2019-04-25',{'breakfast':'{}', 'brunch':'{}'});
+// const query = 
+// COPY menus.restaurant_menus FROM '/Users/jennummerdor/hrphx/sdc/menu/database/cassandra/menus/restaurant_menus/meals1.csv' WITH DELIMITER='^' AND MAXBATCHSIZE = 2 AND CHUNKSIZE = 50;
+// COPY menus.restaurant_menus FROM '/Users/jennummerdor/hrphx/sdc/menu/database/cassandra/menus/restaurant_menus/meals2.csv' WITH DELIMITER='^'AND MAXBATCHSIZE = 2 AND CHUNKSIZE = 50;
+// COPY menus.restaurant_menus FROM '/Users/jennummerdor/hrphx/sdc/menu/database/cassandra/menus/restaurant_menus/meals3.csv' WITH DELIMITER='^'AND MAXBATCHSIZE = 2 AND CHUNKSIZE = 50;
+// COPY menus.restaurant_menus FROM '/Users/jennummerdor/hrphx/sdc/menu/database/cassandra/menus/restaurant_menus/meals4.csv' WITH DELIMITER='^'AND MAXBATCHSIZE = 2 AND CHUNKSIZE = 50;
+// COPY menus.restaurant_menus FROM '/Users/jennummerdor/hrphx/sdc/menu/database/cassandra/menus/restaurant_menus/meals5.csv' WITH DELIMITER='^'AND MAXBATCHSIZE = 2 AND CHUNKSIZE = 50;
