@@ -1,9 +1,7 @@
 const seedData = require('./randomSeedData')
 const fs = require('fs')
 const path = require('path')
-
-// let fileNameIngredients = path.join(__dirname + '/records') //100000 third of ingredients that exist in the world
-let restaurant_id = 0;
+const recordsFilePath = path.join(__dirname + '/records');
 
 const randomNumberGenerator = function(min, max, options){
   min = Math.ceil(min);
@@ -17,12 +15,12 @@ const randomNumberGenerator = function(min, max, options){
   return Math.floor(Math.random() * (max - min)) + min
 } 
 
+// unused functions but left here for reference
 // let mealIndex = randomNumberGenerator(0, 20)
 // let menuItem = seedData.menuItems[mealIndex]
 // let mealDescriptionIndex = randomNumberGenerator(0, 20)
 // let mealDescription = seedData.menuItems[mealDescriptionIndex]
 // let price = randomNumberGenerator(15, 50, 'price')
-
 
 /* //////////// helper functions embedded in CSV file generator-created to save space //////////// */
 const generateIngredients = function(){
@@ -41,8 +39,8 @@ const generateIngredients = function(){
 };
 
 const generateRandomDate = function(){
-  let threeMonths = ["March", "April", "May"];
-  return new Date(`${threeMonths[randomNumberGenerator(0, 3)]} ${randomNumberGenerator(0, 29)}, 2019 10:24:00`);
+  let threeMonths = ["03", "04", "05"];
+  return (`${threeMonths[randomNumberGenerator(0, 3)]}-${randomNumberGenerator(10, 29)}-2019`);
 };
 
 const generateMealResults = function(iteratorStart=0, iteratorStop=10){
@@ -93,7 +91,7 @@ const generateSpecialResults = function(){
 };
 
 /* //////////// Uncomment each function to generate CSV files //////////// */
-// restaurant_id = 0000000
+// restaurant_id = 1000000
 // let breakfastData = 
 // `restaurant_id^date^meal_name^meal_description^ingredient_one^ingredient_two^ingredient_three^ingredient_four^ingredient_five^price
 // ${generateMealResults(0, 1000000)}
@@ -103,7 +101,7 @@ const generateSpecialResults = function(){
 // `restaurant_id^date^meal_name^meal_description^ingredient_one^ingredient_two^ingredient_three^ingredient_four^ingredient_five^price
 // ${generateMealResults(0, 1000000)}
 // `
-// restaurant_id = 2000000
+// restaurant_id = 3000000
 // let lunchData = 
 // `restaurant_id^date^meal_name^meal_description^ingredient_one^ingredient_two^ingredient_three^ingredient_four^ingredient_five^price
 // ${generateMealResults(0, 1000000)}
@@ -126,33 +124,19 @@ const generateSpecialResults = function(){
 // ${generateSpecialResults(0, 1000000)}
 // `
 
-/* //////////// Where each file will be outputted //////////// */
-let breakfastFilePath = path.join(__dirname + '/records');
-let brunchFilePath = path.join(__dirname + '/records');
-let lunchFilePath = path.join(__dirname + '/records');
-let dinnerFilePath = path.join(__dirname + '/records');
-let alcoholFilePath = path.join(__dirname + '/records');
-let specialFilePath = path.join(__dirname + '/records'); 
 
 /* //////////// Actual writing of the files using the data above...each sequenced file is broken up into 1M entries to prevent crashing //////////// */
-// fs.writeFileSync(`${breakfastFilePath}/breakfast2.csv`, breakfastData);
-// fs.writeFileSync(`${brunchFilePath}/brunch.csv`, brunchData);
-// fs.writeFileSync(`${lunchFilePath}/lunch2.csv`, lunchData);
-// fs.writeFileSync(`${dinnerFilePath}/dinner2.csv`, dinnerData);
-// fs.writeFileSync(`${alcoholFilePath}/alcohol.csv`, alcoholData);
-// fs.writeFileSync(`${specialFilePath}/special2.csv`, specialData); 
-
-/* ////////////Reminder of DB schema to aid in CSV file creation //////////// */
-//meals: 
-//restaurant_id(int not null) unique
-//meal_name: String (3-5 words)
-//meal_description: (String, 15-35 words)
-//price: (String, 12-60)
-
-//specials:
-//restaurant_id: (FOREIGN KEY)
-//date: date range
-//meal_name: (String, 3-5 words)
-//meal_description: (String, 12-60)
+// fs.writeFileSync(`${recordsFilePath}/breakfast2.csv`, breakfastData);
+// fs.writeFileSync(`${recordsFilePath}/brunch.csv`, brunchData);
+// fs.writeFileSync(`${recordsFilePath}/lunch2.csv`, lunchData);
+// fs.writeFileSync(`${recordsFilePath}/dinner2.csv`, dinnerData);
+// fs.writeFileSync(`${recordsFilePath}/alcohol.csv`, alcoholData);
+// fs.writeFileSync(`${recordsFilePath}/special2.csv`, specialData); 
 
 
+/* testing writeStream-this will create files 1 second slower than using synchronous version and has the same file limitations (about 1M files before exhausting memory on my laptop)
+
+// let writeStream = fs.createWriteStream(path.join(__dirname + '/records/test.csv'));
+// writeStream.write(breakfastData, 'utf-8')
+
+*/

@@ -1,26 +1,12 @@
-var mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/Menu");
-// mongoose.connect("mongodb://menudb:27017/Menu");
+const { Pool, Client } = require('pg')
 
-const db = mongoose.connection;
+const pool = new Pool({
+  user: 'jennummerdor',
+  host: 'localhost',
+  max: 100,
+  database: 'menus',
+  password: '627277',
+  port: 5432,
+})
 
-db.on("error", console.error.bind(console, "connection error:"));
-db.once("open", function() {});
-
-const menuSchema = new mongoose.Schema({
-  restaurantID: String,
-  Lunch: Object,
-  Dinner: Object,
-  Breakfast: Object,
-  Brunch: Object,
-  Happy_Hour: Object,
-  Alcohol: Object
-});
-const specialSchema = new mongoose.Schema({
-  restaurantID: String,
-  head: String,
-  body: String
-});
-const Items = mongoose.model("Items", menuSchema, "Items");
-const Special = mongoose.model("Special", specialSchema, "Special");
-module.exports = { Items, Special };
+module.exports = pool;
