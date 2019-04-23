@@ -36,12 +36,13 @@
     "build": "webpack --watch",
     "start": "node server/server.js",
     "test": "jest --coverage",
-    "csv-generate": "database/csvGeneration.js",
-    "seed": "node database/seed.js",
+    "seed-psql": "node database/postgres/seed-psql.js",
+    "seed-cass": "node database/cassandra/seed-cass.js",
     "server-dev": "nodemon server/server.js"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
+    "cassandra-driver": "^4.0.0",
     "cors": "^2.8.4",
     "express": "^4.16.4",
     "faker": "^4.1.0",
@@ -49,7 +50,8 @@
     "mongoose": "^5.3.11",
     "morgan": "^1.9.0",
     "pg": "^7.10.0",
-    "random-words": "^1.1.0"
+    "random-words": "^1.1.0",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "webpack": "^4.23.1",
