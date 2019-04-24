@@ -142,7 +142,14 @@ const generateMealResults = function(iteratorStart, iteratorStop, writer, encodi
 }
 
 /* WILL WRITE FILES */
-// let stream1 = fs.createWriteStream(path.join(__dirname + '/menus/restaurant_menus/meals1.csv'));
+//will write all files
+// let stream = fs.createWriteStream(path.join(__dirname + '/menus/restaurant_menus/meals.csv'));
+// generateMealResults(0, 9999999, stream, 'utf-8', ((err, success) => {
+//   console.log(err || "done writing!")
+//   })
+// );
+
+// let stream1 = fs.createWriteStream(path.join(__dirname + '/menus/restaurant_menuss/meals1.csv'));
 // generateMealResults(0, 1999999, stream1, 'utf-8', ((err, success) => {
 //   console.log(err || "done writing!")
 //   })

@@ -6,7 +6,7 @@ const parser = require("body-parser");
 const app = express();
 const port = process.env.PORT || 80;
 
-// const postConnection = require('../database/postgres/queries')
+const postConnection = require('../database/postgres/queries')
 // const postCsvGeneration = require('../database/postgres/csvGeneration')
 
 // const cassConnection = require('../database/cassandra/queries')

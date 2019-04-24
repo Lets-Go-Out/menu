@@ -40,7 +40,7 @@ const generateRandomDate = function(){
 /* Three functions: generate special results, happy hour, and meal results */
 
 const generateSpecialResults = function(iteratorStart, iteratorStop, writer, encoding, callback){
-  let restaurant_id = iteratorStop;
+  let restaurant_id = iteratorStop/10;
   let check = true;
   let i = iteratorStop;
 
@@ -78,7 +78,7 @@ const generateSpecialResults = function(iteratorStart, iteratorStop, writer, enc
 }
 
 const generateAlcoholAndHappyHourResults = function(iteratorStart, iteratorStop, writer, encoding, callback){
-  let restaurant_id = iteratorStop;
+  let restaurant_id = iteratorStop/10;
   let check = true;
   let i = iteratorStop;
 
@@ -116,7 +116,7 @@ const generateAlcoholAndHappyHourResults = function(iteratorStart, iteratorStop,
 }
 
 const generateMealResults = function(iteratorStart, iteratorStop, writer, encoding, callback){
-  let restaurant_id = iteratorStop;
+  let restaurant_id = iteratorStop/10;
   let check = true;
   let i = iteratorStop;
 

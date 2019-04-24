@@ -1,11 +1,11 @@
 const { Pool, Client } = require('pg')
 
 const pool = new Pool({
-  user: 'jennummerdor',
+  user: 'student',
   host: 'localhost',
   max: 100,
   database: 'menus',
-  password: '627277',
+  password: 'plantlife',
   port: 5432,
 })
 
