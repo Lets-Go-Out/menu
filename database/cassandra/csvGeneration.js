@@ -80,12 +80,14 @@ const generateMealResults = function(iteratorStart, iteratorStop, writer, encodi
   let restaurant_id = iteratorStop;
   let check = true;
   let i = iteratorStop;
+  let uniqueIDStr = "";
 
   function write(){
     while(i >= iteratorStart){
       i--;
+      let uniqueID = uuidv4()
       let str = ``;
-      str+= uuidv4() + "^"
+      str+= uniqueID + "^"
 
       if(restaurant_id >= 0 && restaurant_id < 1000000){
         let results1 = createRegularMenu('brunch');
@@ -124,6 +126,7 @@ const generateMealResults = function(iteratorStart, iteratorStop, writer, encodi
         str+= "\n";
       }
       if(i % 10000 === 0) {
+        uniqueIDStr+= uniqueID + "," + "\n"
         console.clear();
         console.log(i);
       }
@@ -137,43 +140,44 @@ const generateMealResults = function(iteratorStart, iteratorStop, writer, encodi
         break;
       }
     }
+    fs.writeFileSync((path.join(__dirname + '/records/.txt')), uniqueIDStr)
   }
   write()
 }
 
 /* WILL WRITE FILES */
 //will write all files
-// let stream = fs.createWriteStream(path.join(__dirname + '/menus/restaurant_menus/meals.csv'));
+// let stream = fs.createWriteStream(path.join(__dirname + '/records/meals.csv'));
 // generateMealResults(0, 9999999, stream, 'utf-8', ((err, success) => {
 //   console.log(err || "done writing!")
 //   })
 // );
 
-// let stream1 = fs.createWriteStream(path.join(__dirname + '/menus/restaurant_menuss/meals1.csv'));
+// let stream1 = fs.createWriteStream(path.join(__dirname + '/records/meals1.csv'));
 // generateMealResults(0, 1999999, stream1, 'utf-8', ((err, success) => {
 //   console.log(err || "done writing!")
 //   })
 // );
 
-// let stream2 = fs.createWriteStream(path.join(__dirname + '/menus/restaurant_menus/meals2.csv'));
+// let stream2 = fs.createWriteStream(path.join(__dirname + '/records/meals2.csv'));
 // generateMealResults(2000000, 3999999, stream2, 'utf-8', ((err, success) => {
 //   console.log(err || "done writing!")
 //   })
 // );
 
-// let stream3 = fs.createWriteStream(path.join(__dirname + '/menus/restaurant_menus/meals3.csv'));
+// let stream3 = fs.createWriteStream(path.join(__dirname + '/records/meals3.csv'));
 // generateMealResults(4000000, 5999999, stream3, 'utf-8', ((err, success) => {
 //   console.log(err || "done writing!")
 //   })
 // );
 
-// let stream4 = fs.createWriteStream(path.join(__dirname + '/menus/restaurant_menus/meals4.csv'));
+// let stream4 = fs.createWriteStream(path.join(__dirname + '/records/meals4.csv'));
 // generateMealResults(6000000, 7999999, stream4, 'utf-8', ((err, success) => {
 //   console.log(err || "done writing!")
 //   })
 // );
 
-// let stream5 = fs.createWriteStream(path.join(__dirname + '/menus/restaurant_menus/meals5.csv'));
+// let stream5 = fs.createWriteStream(path.join(__dirname + '/records/meals5.csv'));
 // generateMealResults(8000000, 9999999, stream5, 'utf-8', ((err, success) => {
 //   console.log(err || "done writing!")
 //   })

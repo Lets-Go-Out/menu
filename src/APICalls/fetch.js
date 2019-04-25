@@ -20,6 +20,7 @@ export const fetchMenuData = (restaurantID, fetchMenuData, fetchData) => {
     });
 };
 
+
 export const wholeRestaurantChange = (restaurantID, wholeChange) => {
   fetch(url + restaurantID + "/menuCount", option)
     .then(response => {

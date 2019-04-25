@@ -3,14 +3,6 @@ const fs = require('fs')
 const path = require('path')
 const uuids = require('./records/UUID.1')
 
-module.exports = {
-    findRestaurantById: function(id, cb){
-        let query = `SELECT * FROM menus.restaurant_menus WHERE restaurant_id = ${id}`
-        client.execute(query)
-        .then(res => cb(res))
-    }
-}
-
 // for(var i = 0; i < 1000; i++){
 //     (function getQueryTime(num){
 //         setTimeout(()=>{
