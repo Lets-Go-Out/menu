@@ -4,7 +4,7 @@ const path = require("path");
 const cors = require("cors");
 const parser = require("body-parser");
 const app = express();
-const port = process.env.PORT || 80;
+const port = process.env.PORT || 3000;
 const db = require('../database/cassandra/queries')
 
 // const postConnection = require('../database/postgres/queries')
@@ -28,7 +28,7 @@ app.get("/restaurants/:restaurantID/menu/:menu", (req, res) => {
   console.log(menu)
   let restaurantID = req.params.restaurantID.toString();
   db.findRestaurantById(restaurantID, (response)=>{
-    res.json(response.rows[0].menu_list)
+    res.send(response.rows[0].menu_list)
   })
 });
 

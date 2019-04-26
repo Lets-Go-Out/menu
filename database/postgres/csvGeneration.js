@@ -160,45 +160,45 @@ const generateMealResults = function(iteratorStart, iteratorStop, writer, encodi
 
 /* Actually populating the csv files */
 /* call once for breakfast, write 4 million records */
-// let breakfastStream = fs.createWriteStream(path.join(__dirname + '/records/breakfast.csv'));
-// generateMealResults(10000000, 50000000, breakfastStream, 'utf-8', ((err, success) => {
-//   console.log(err || "done writing breakfast!")
-//   })
-// )
+let breakfastStream = fs.createWriteStream(path.join(__dirname + '/records/breakfast.csv'));
+generateMealResults(10000000, 50000000, breakfastStream, 'utf-8', ((err, success) => {
+  console.log(err || "done writing breakfast!")
+  })
+)
 
 /* call once for brunch, write 1 million records (brunch is not common everywhere!) */
-// let brunchStream = fs.createWriteStream(path.join(__dirname + '/records/brunch.csv'));
-// generateMealResults(0, 10000000, brunchStream, 'utf-8', ((err, success) => {
-//   console.log(err || "done writing brunch!")
-//   })
-// )
+let brunchStream = fs.createWriteStream(path.join(__dirname + '/records/brunch.csv'));
+generateMealResults(0, 10000000, brunchStream, 'utf-8', ((err, success) => {
+  console.log(err || "done writing brunch!")
+  })
+)
 
 /* call once for lunch, write 3 million records */
-// let lunchStream = fs.createWriteStream(path.join(__dirname + '/records/lunch.csv'));
-// generateMealResults(50000000, 80000000, lunchStream, 'utf-8', ((err, success) => {
-//   console.log(err || "done writing lunch!")
-// }))
+let lunchStream = fs.createWriteStream(path.join(__dirname + '/records/lunch.csv'));
+generateMealResults(50000000, 80000000, lunchStream, 'utf-8', ((err, success) => {
+  console.log(err || "done writing lunch!")
+}))
 
 /* call once for dinner, write 3 million records */
-// let dinnerStream = fs.createWriteStream(path.join(__dirname + '/records/dinner.csv'));
-// generateMealResults(60000000, 90000000, dinnerStream, 'utf-8', ((err, success) => {
-//   console.log(err || "done writing dinner!")
-// }))
+let dinnerStream = fs.createWriteStream(path.join(__dirname + '/records/dinner.csv'));
+generateMealResults(60000000, 90000000, dinnerStream, 'utf-8', ((err, success) => {
+  console.log(err || "done writing dinner!")
+}))
 
 /* call once for happy hour, write 1 million records */
-// let happyHourStream = fs.createWriteStream(path.join(__dirname + '/records/happy_hour.csv'));
-// generateAlcoholAndHappyHourResults(80000000, 90000000, happyHourStream, 'utf-8', ((err, success) => {
-//   console.log(err || "done writing happy hour!")
-// }))
+let happyHourStream = fs.createWriteStream(path.join(__dirname + '/records/happy_hour.csv'));
+generateAlcoholAndHappyHourResults(80000000, 90000000, happyHourStream, 'utf-8', ((err, success) => {
+  console.log(err || "done writing happy hour!")
+}))
 
 /* call once for alcohol, write 1 million records */
-// let alcoholStream = fs.createWriteStream(path.join(__dirname + '/records/alcohol.csv'));
-// generateAlcoholAndHappyHourResults(90000000, 100000000, alcoholStream, 'utf-8', ((err, success) => {
-//   console.log(err || "done writing alcohol!")
-// }))
+let alcoholStream = fs.createWriteStream(path.join(__dirname + '/records/alcohol.csv'));
+generateAlcoholAndHappyHourResults(90000000, 100000000, alcoholStream, 'utf-8', ((err, success) => {
+  console.log(err || "done writing alcohol!")
+}))
 
 /* call once for specials, write 2 million records */
-// let specialStream = fs.createWriteStream(path.join(__dirname + '/records/special.csv'));
-// generateSpecialResults(80000000, 100000000, specialStream, 'utf-8', ((err, success) => {
-//   console.log(err || "done writing special!")
-// }))
+let specialStream = fs.createWriteStream(path.join(__dirname + '/records/special.csv'));
+generateSpecialResults(80000000, 100000000, specialStream, 'utf-8', ((err, success) => {
+  console.log(err || "done writing special!")
+}))

@@ -26,54 +26,49 @@ const generateQueryString = function(){
     }
     else if(rando >= 6000000 && rando < 8000000)
     {
-        queryString = `EXPLAIN ANALYZE SELECT * FROM lunch WHERE lunch.restaurant_id = ${rando}; 
-        EXPLAIN ANALYZE SELECT * FROM dinner WHERE dinner.restaurant_id = ${rando};`
+        queryString = `EXPLAIN ANALYZE SELECT * FROM lunch, dinner WHERE lunch.restaurant_id = ${rando} AND dinner.restaurant_id = ${rando};`
     }
     else if(rando >= 8000000 && rando < 9000000)
     {
-        queryString = `EXPLAIN ANALYZE SELECT * FROM happy_hour WHERE happy_hour.restaurant_id = ${rando}; 
-        EXPLAIN ANALYZE SELECT * FROM dinner WHERE dinner.restaurant_id = ${rando};
-        EXPLAIN ANALYZE SELECT * FROM special WHERE special.restaurant_id = ${rando};`
+        queryString = `EXPLAIN ANALYZE SELECT * FROM happy_hour, dinner, special WHERE happy_hour.restaurant_id = ${rando} AND dinner.restaurant_id = ${rando} and special.restaurant_id = ${rando};`
     }
     else if(rando >= 9000000 && rando < 10000000)
     {
-        queryString = `EXPLAIN ANALYZE SELECT * FROM happy_hour WHERE happy_hour.restaurant_id = ${rando}; 
-        EXPLAIN ANALYZE SELECT * FROM alcohol WHERE alcohol.restaurant_id = ${rando};
-        EXPLAIN ANALYZE SELECT * FROM special WHERE special.restaurant_id = ${rando};`
+        queryString = `EXPLAIN ANALYZE SELECT * FROM happy_hour, alcohol, special WHERE happy_hour.restaurant_id = ${rando} AND alcohol.restaurant_id = ${rando} and special.restaurant_id = ${rando};`
     }
     
     return queryString;
 }
 
-let query = generateQueryString();
+// let query = generateQueryString();
 
-const makeManyQueries = function()
-{
-    let totalTimeOneQuery = ""
-    for(var i = 0; i < 1000; i++){
-        pool.query(query, (err, res) => 
-            {
-            totalTimeOneQuery += 
-                eval(res.rows[2]['QUERY PLAN'].split(":")[1].split("ms")[0].trim()) + 
-                eval(res.rows[3]['QUERY PLAN'].split(":")[1].split("ms")[0].trim()) + ',';
-            }
-        );
-    }
-    fs.writeFileSync(path.join(__dirname,'/records/totalTimePostgres.txt'), totalTimeOneQuery)
-}
-makeManyQueries()
-
-
-// for(var i = 0; i < 1000; i++){
-//     (function getQueryTime(num){
-//         setTimeout(()=>{
-//         let query = generateQueryString()
-//         pool.query(query)
-//         .then(result => {
-//             return totalTimeOneQuery += 
-//             eval(result.rows[2]['QUERY PLAN'].split(":")[1].split("ms")[0].trim()) + 
-//             eval(result.rows[3]['QUERY PLAN'].split(":")[1].split("ms")[0].trim()) + ','
-//             })
-//         }, 1000 * i + 1)
-//     })(i)
+// const makeManyQueries = function()
+// {
+//     let totalTimeOneQuery = ""
+//     for(var i = 0; i < 1000; i++){
+//         pool.query(query, (err, res) => 
+//             {
+//             totalTimeOneQuery += 
+//                 eval(res.rows[2]['QUERY PLAN'].split(":")[1].split("ms")[0].trim()) + 
+//                 eval(res.rows[3]['QUERY PLAN'].split(":")[1].split("ms")[0].trim()) + ',';
+//             }
+//         );
+//     }
+//     fs.writeFileSync(path.join(__dirname,'/records/totalTimePostgres.txt'), totalTimeOneQuery)
 // }
+// makeManyQueries()
+
+for(var i = 0; i < 1000; i++){
+    (function getQueryTime(num){
+        setTimeout(()=>{
+        let query = generateQueryString()
+        pool.query(query)
+        .then(result => {
+            console.log(
+                eval(result.rows[result.rows.length-2]['QUERY PLAN'].split(":")[1].split("ms")[0].trim()) + 
+                eval(result.rows[result.rows.length-1]['QUERY PLAN'].split(":")[1].split("ms")[0].trim()) + ','
+            )
+            })
+        }, 1000 * i + 1)
+    })(i)
+}
