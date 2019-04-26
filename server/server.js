@@ -11,7 +11,7 @@ const db = require('../database/cassandra/queries')
 // const postCsvGeneration = require('../database/postgres/csvGeneration')
 
 // const cassConnection = require('../database/cassandra/queries')
-// const cassCsvGeneration = require('../database/cassandra/csvGeneration')
+const cassCsvGeneration = require('../database/cassandra/csvGeneration')
 
 app.use(morgan("dev"));
 app.use(cors());
