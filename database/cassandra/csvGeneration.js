@@ -89,23 +89,39 @@ const generateMealResults = function(iteratorStart, iteratorStop, writer, encodi
       let str = ``;
       str+= uniqueID + "^"
 
-      if(restaurant_id >= 0 && restaurant_id < 1000000){
-        let results1 = createRegularMenu('brunch');
-        str+= JSON.stringify(results1)
-      }
-      if(restaurant_id >= 1000000 && restaurant_id < 5000000){
+      if(restaurant_id >= 0 && restaurant_id < 2000000){
         let breakfastMenu = createRegularMenu('breakfast');
-        str+= JSON.stringify(breakfastMenu)
+        let brunchMenu = createRegularMenu('brunch');
+        let specialMenu = createSpecialMenu('special');
+        str+= JSON.stringify(breakfastMenu);
+        str+= JSON.stringify(brunchMenu);
+        str+= JSON.stringify(specialMenu);
+      }
+      if(restaurant_id >= 2000000 && restaurant_id < 5000000){
+        let specialMenu = createSpecialMenu('special');
+        let breakfastMenu = createRegularMenu('breakfast');
+        let lunchMenu = createRegularMenu('lunch');
+        str+= JSON.stringify(breakfastMenu);
+        str+= JSON.stringify(lunchMenu);
+        str+= JSON.stringify(specialMenu);
       }
       if(restaurant_id >= 5000000 && restaurant_id < 6000000){
+        let breakfastMenu = createRegularMenu('breakfast');
         let lunchMenu = createRegularMenu('lunch');
-        str+= JSON.stringify(lunchMenu)
+        let dinnerMenu = createRegularMenu('dinner');
+        let specialMenu = createSpecialMenu('special');
+        str+= JSON.stringify(breakfastMenu);
+        str+= JSON.stringify(lunchMenu);
+        str+= JSON.stringify(dinnerMenu);
+        str+= JSON.stringify(specialMenu);
       }
       if(restaurant_id >= 6000000 && restaurant_id < 80000000){
+        let specialMenu = createSpecialMenu('special');
         let lunchMenu = createRegularMenu('lunch');
         let dinnerMenu = createRegularMenu('dinner');
         str+= JSON.stringify(lunchMenu)
         str+= JSON.stringify(dinnerMenu);
+        str+= JSON.stringify(specialMenu);
       }
       if(restaurant_id >= 8000000 && restaurant_id < 9000000){
         let happyHourMenu = createAlcoholMenu('happy_hour');
@@ -116,10 +132,12 @@ const generateMealResults = function(iteratorStart, iteratorStop, writer, encodi
         str+= JSON.stringify(specialMenu);
       }
       if(restaurant_id >= 9000000 && restaurant_id < 10000000){
-        let specialMenu = createSpecialMenu('special');
+        let happyHourMenu = createAlcoholMenu('happy_hour');
         let alcoholMenu = createAlcoholMenu('alcohol');
-        str+= JSON.stringify(specialMenu) 
+        let specialMenu = createSpecialMenu('special');
+        str+= JSON.stringify(happyHourMenu);
         str+= JSON.stringify(alcoholMenu);
+        str+= JSON.stringify(specialMenu);
       }
       str+="^" + restaurant_id--;
       if(i !== iteratorStart-1){
@@ -147,11 +165,11 @@ const generateMealResults = function(iteratorStart, iteratorStop, writer, encodi
 
 /* WILL WRITE FILES */
 //will write all files
-// let stream = fs.createWriteStream(path.join(__dirname + '/records/meals.csv'));
-// generateMealResults(0, 9999999, stream, 'utf-8', ((err, success) => {
-//   console.log(err || "done writing!")
-//   })
-// );
+let stream = fs.createWriteStream(path.join(__dirname + '/records/meals.csv'));
+generateMealResults(0, 99, stream, 'utf-8', ((err, success) => {
+  console.log(err || "done writing!")
+  })
+);
 
 // let stream1 = fs.createWriteStream(path.join(__dirname + '/records/meals1.csv'));
 // generateMealResults(0, 1999999, stream1, 'utf-8', ((err, success) => {

@@ -25,21 +25,19 @@ app.listen(port, () => {
 //displaying a specific menu by restaurant id and menu type
 app.get("/restaurants/:restaurantID/menu/:menu", (req, res) => {
   let menu = req.params.menu;
-  console.log(menu)
   let restaurantID = req.params.restaurantID.toString();
   db.findRestaurantById(restaurantID, (response)=>{
-    res.send(response.rows[0].menu_list)
+    res.json(`${response.rows[0].menu_list}`)
   })
 });
 
-// app.get("/restaurants/:restaurantID/menuCount", (req, res) => {
-//   let restaurantID = req.params.restaurantID.toString();
-//   Items.find({ restaurantID: restaurantID }, (err, docs) => {
-//     if (err) return console.error(err);
-//     let menuCount = sorter(docs);
-//     res.json(menuCount);
-//   });
-// });
+app.get("/restaurants/:restaurantID/menuCount", (req, res) => {
+  let menu = req.params.menu;
+  let restaurantID = req.params.restaurantID.toString();
+  db.findRestaurantById(restaurantID, (response)=>{
+    res.json(`${response.rows[0].menu_list}`)
+  })
+});
 
 
 // /////////////

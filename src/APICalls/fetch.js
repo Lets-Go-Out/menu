@@ -10,14 +10,17 @@ let option = {
 export const fetchMenuData = (restaurantID, fetchMenuData, fetchData) => {
   fetch(url + restaurantID + "/menuCount", option)
     .then(response => response.json())
-    .then(nameOfMenus => {
-      fetch(url + restaurantID + "/menu/" + nameOfMenus[0], option)
-        .then(response => response.json())
-        .then(allMenusForRestaurant => {
-          fetchMenuData(nameOfMenus);
-          fetchData(allMenusForRestaurant, nameOfMenus[0]);
-        });
-    });
+    .then(allMenus => {
+      let unparsedMenuData = (allMenus.split("}{"))
+      let parsedMenuData = JSON.parse(unparsedMenuData)
+      let arrayFromParsedMenuData = []
+      let menuTypes = []
+      for(var key in parsedMenuData){
+        arrayFromParsedMenuData.push(parsedMenuData[key])
+        menuTypes.push(key)
+      }
+      fetchData(arrayFromParsedMenuData, menuTypes[0]);
+  });
 };
 
 export const wholeRestaurantChange = (restaurantID, wholeChange) => {
