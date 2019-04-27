@@ -7,6 +7,15 @@ let option = {
   }
 };
 
+{/* <div className={styles.entryContainer}>
+<div className={styles.title}>
+  {props.item[selected].name}
+  <span className={styles.price}>{props.item[selected].price}</span>
+</div>
+<div />
+<div className={styles.description}>
+  {props.item[selected].description} */}
+
 export const fetchMenuData = (restaurantID, fetchMenuData, fetchData) => {
   fetch(url + restaurantID + "/menuCount", option)
     .then(response => response.json())
@@ -19,7 +28,27 @@ export const fetchMenuData = (restaurantID, fetchMenuData, fetchData) => {
         arrayFromParsedMenuData.push(parsedMenuData[key])
         menuTypes.push(key)
       }
-      fetchData(arrayFromParsedMenuData, menuTypes[0]);
+      let firstMenuType = arrayFromParsedMenuData[0]
+      let menuTypesWithCapitals = menuTypes.map(menuName => (menuName[0].toUpperCase() + menuName.slice(1)))
+      let finalArrayToBeReturned = [];
+
+      for(var i = 0; i < 10; i++){
+
+        let outerMenuItem = {
+        [`${menuTypesWithCapitals[0]}`]: {}
+        };
+        outerMenuItem.restaurantID = restaurantID;
+
+        outerMenuItem[`${menuTypesWithCapitals[0]}`].description = firstMenuType[`item${i}`].menuDescription;
+        outerMenuItem[`${menuTypesWithCapitals[0]}`].ingredients = firstMenuType[`item${i}`].ingredients;
+        outerMenuItem[`${menuTypesWithCapitals[0]}`].menu = menuTypes[0];
+        outerMenuItem[`${menuTypesWithCapitals[0]}`].name = firstMenuType[`item${i}`].menuItem;
+        outerMenuItem[`${menuTypesWithCapitals[0]}`].price = firstMenuType[`item${i}`].price;
+
+        finalArrayToBeReturned.push(outerMenuItem);
+      }
+      fetchMenuData(menuTypesWithCapitals)
+      fetchData(finalArrayToBeReturned, menuTypesWithCapitals[0]);
   });
 };
 
@@ -42,7 +71,25 @@ export const wholeRestaurantChange = (restaurantID, wholeChange) => {
 export const fetchSpecial = (restaurantID, fetchspecial) => {
   fetch(url + restaurantID + "/special", option)
     .then(response => response.json())
-    .then(arrayOfSpecialsMenuObjects => {
-      fetchspecial(arrayOfSpecialsMenuObjects);
+    .then(allMenus => {
+      let unparsedMenuData = (allMenus.split("}{"))
+      let parsedMenuData = JSON.parse(unparsedMenuData)
+      let arrayFromParsedMenuData = []
+      let menuTypes = []
+      for(var key in parsedMenuData){
+        arrayFromParsedMenuData.push(parsedMenuData[key])
+        menuTypes.push(key)
+      }
+      let specialIndex = menuTypes.indexOf('special')
+      let specialMenu = arrayFromParsedMenuData[specialIndex]
+      let specialArr = []
+      for(var i = 0; i < 3; i++){
+        let newFormattedSpecial = {}
+        newFormattedSpecial.head = specialMenu[i].specialName
+        newFormattedSpecial.body = specialMenu[i].specialDescription
+        newFormattedSpecial.restaurantID = restaurantID
+        specialArr.push(newFormattedSpecial)
+      }
+      fetchspecial(specialArr);
     });
 };

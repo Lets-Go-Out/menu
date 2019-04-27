@@ -2,11 +2,11 @@ import Redux from "redux";
 import { callbackify } from "util";
 
 const initialState = {
-  navmenu: ["lunch", "dinner", "brunch", "happy hour", "alcohol"],
-  selected: "breakfast", //need to use Caps
+  navmenu: ["Lunch", "Dinner", "Brunch", "Happy Hour", "Alcohol"],
+  selected: "Lunch", //need to use Caps
   viewmode: "container-1",
   viewFull: "viewFull", //view Button
-  restaurantID: 1,
+  restaurantID: 7899999,
   entry: [],
   special: []
 };

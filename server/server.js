@@ -11,7 +11,7 @@ const db = require('../database/cassandra/queries')
 // const postCsvGeneration = require('../database/postgres/csvGeneration')
 
 // const cassConnection = require('../database/cassandra/queries')
-const cassCsvGeneration = require('../database/cassandra/csvGeneration')
+// const cassCsvGeneration = require('../database/cassandra/csvGeneration')
 
 app.use(morgan("dev"));
 app.use(cors());
@@ -22,22 +22,51 @@ app.listen(port, () => {
   console.log(`server running at: http://localhost:${port}`);
 });
 
-//displaying a specific menu by restaurant id and menu type
-app.get("/restaurants/:restaurantID/menu/:menu", (req, res) => {
-  let menu = req.params.menu;
+// //displaying a specific menu by restaurant id and menu type
+// app.get("/restaurants/:restaurantID/menu/:menu", (req, res) => {
+//   let menu = req.params.menu;
+//   let restaurantID = req.params.restaurantID.toString();
+
+//   db.findRestaurantById(restaurantID, (response)=>{
+//     res.json(`${response.rows[0].menu_list}`)
+//   })
+// });
+
+app.get("/restaurants/:restaurantID/menuCount", (req, res) => {
   let restaurantID = req.params.restaurantID.toString();
   db.findRestaurantById(restaurantID, (response)=>{
     res.json(`${response.rows[0].menu_list}`)
   })
 });
 
-app.get("/restaurants/:restaurantID/menuCount", (req, res) => {
-  let menu = req.params.menu;
+app.get("/restaurants/:restaurantID/special", (req, res) => {
   let restaurantID = req.params.restaurantID.toString();
   db.findRestaurantById(restaurantID, (response)=>{
     res.json(`${response.rows[0].menu_list}`)
   })
 });
+
+app.post('/restaurants/:restaurantID/menu/add-new', (req, res) => {
+  let restaurantID = req.params.restaurantID.toString();
+  db.updateMenuByRestaurantId(restaurantId, (response) => {
+    res.json()
+  })
+})
+
+app.put('/restaurants/:restaurantID/menu/:menu/edit', (req, res) => {
+  let restaurantID = req.params.restaurantID.toString();
+  db.editMenuByRestaurantId(restaurantID, (response) => {
+    res.json()
+  })
+})
+
+app.delete('/restaurants/:restaurantID/menu/:menu/delete', (req, res) => {
+  let restaurantID = req.params.restaurantID.toString();
+  db.deleteMenuByRestaurantId(restaurantID, menuType, (response) => {
+    res.json()
+  })
+})
+
 
 
 // /////////////

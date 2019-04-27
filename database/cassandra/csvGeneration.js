@@ -133,10 +133,10 @@ const generateMealResults = function(iteratorStart, iteratorStop, writer, encodi
         str+= JSON.stringify(specialMenu);
       }
       if(restaurant_id >= 9000000 && restaurant_id < 10000000){
-        let happyHourMenu = createAlcoholMenu('happy_hour');
+        let dinnerMenu = createRegularMenu('dinner');
         let alcoholMenu = createAlcoholMenu('alcohol');
         let specialMenu = createSpecialMenu('special');
-        str+= JSON.stringify(happyHourMenu);
+        str+= JSON.stringify(dinnerMenu);
         str+= JSON.stringify(alcoholMenu);
         str+= JSON.stringify(specialMenu);
       }
