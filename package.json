@@ -38,7 +38,10 @@
     "test": "jest --coverage",
     "seed-psql": "node database/postgres/seed-psql.js",
     "seed-cass": "node database/cassandra/seed-cass.js",
-    "server-dev": "nodemon server/server.js"
+    "server-dev": "nodemon server/server.js",
+    "csv1-generate": "node database/cassandra/csvGeneration.js",
+    "csv2-generate": "node database/cassandra/csvGeneration2.js",
+    "csv3-generate": "node database/cassandra/csvGeneration3.js"
   },
   "dependencies": {
     "body-parser": "^1.18.3",

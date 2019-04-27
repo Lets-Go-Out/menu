@@ -167,17 +167,17 @@ const generateMealResults = function(iteratorStart, iteratorStop, writer, encodi
 
 /* WILL WRITE FILES */
 
-let stream1 = fs.createWriteStream(path.join(__dirname + '/records/meals1.csv'));
-generateMealResults(0, 2999999, stream1, 'utf-8', ((err, success) => {
-  console.log(err || "done writing!")
-  })
-);
-
-// let stream2 = fs.createWriteStream(path.join(__dirname + '/records/meals2.csv'));
-// generateMealResults(3000000, 6999999, stream2, 'utf-8', ((err, success) => {
+// // let stream1 = fs.createWriteStream(path.join(__dirname + '/records/meals1.csv'));
+// generateMealResults(0, 2999999, stream1, 'utf-8', ((err, success) => {
 //   console.log(err || "done writing!")
 //   })
 // );
+
+let stream2 = fs.createWriteStream(path.join(__dirname + '/records/meals2.csv'));
+generateMealResults(3000000, 6999999, stream2, 'utf-8', ((err, success) => {
+  console.log(err || "done writing!")
+  })
+);
 
 // let stream3 = fs.createWriteStream(path.join(__dirname + '/records/meals3.csv'));
 // generateMealResults(7000000, 9999999, stream3, 'utf-8', ((err, success) => {
