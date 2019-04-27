@@ -8,6 +8,21 @@ module.exports = {
         let query = `SELECT * FROM menus.restaurant_menus WHERE restaurant_id = ${id}`
         client.execute(query)
         .then(res => cb(res))
+    }, 
+    addNewRestaurant: function(id, newInfo, cb){
+        let query = `INSERT INTO menus.restaurant_menus (restaurant_id, menu_list) VALUES (${id}, '${newInfo}')`
+        client.execute(query)
+        .then(res => cb(res))
+    }, 
+    editMenuByRestaurantId(id, updatedData, cb){
+        let query = `UPDATE menus.restaurant_menus SET menu_list = '${updatedData}' WHERE restaurant_id = ${id}`
+        client.execute(query)
+        .then(res => cb(res))
+    },
+    deleteEntireMenu(id, cb){
+        let query = `DELETE FROM menus.restaurant_menus WHERE restaurant_id = ${id}`
+        client.execute(query)
+        .then(res => cb(res))
     }
 }
 

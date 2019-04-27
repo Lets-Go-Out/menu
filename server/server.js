@@ -23,14 +23,14 @@ app.listen(port, () => {
 });
 
 // //displaying a specific menu by restaurant id and menu type
-// app.get("/restaurants/:restaurantID/menu/:menu", (req, res) => {
-//   let menu = req.params.menu;
-//   let restaurantID = req.params.restaurantID.toString();
+app.get("/restaurants/:restaurantID/menu/:menu", (req, res) => {
+  let menu = req.params.menu;
+  let restaurantID = req.params.restaurantID.toString();
 
-//   db.findRestaurantById(restaurantID, (response)=>{
-//     res.json(`${response.rows[0].menu_list}`)
-//   })
-// });
+  db.findRestaurantById(restaurantID, (response)=>{
+    res.json(`${response.rows[0].menu_list}`)
+  })
+});
 
 app.get("/restaurants/:restaurantID/menuCount", (req, res) => {
   let restaurantID = req.params.restaurantID.toString();
@@ -48,22 +48,24 @@ app.get("/restaurants/:restaurantID/special", (req, res) => {
 
 app.post('/restaurants/:restaurantID/menu/add-new', (req, res) => {
   let restaurantID = req.params.restaurantID.toString();
-  db.updateMenuByRestaurantId(restaurantId, (response) => {
-    res.json()
+  let newMenu= req.body;
+  db.addNewRestaurant(restaurantId, newMenu, (response) => {
+    res.send()
   })
 })
 
 app.put('/restaurants/:restaurantID/menu/:menu/edit', (req, res) => {
   let restaurantID = req.params.restaurantID.toString();
-  db.editMenuByRestaurantId(restaurantID, (response) => {
-    res.json()
+  let updatedMenu = req.body
+  db.editMenuByRestaurantId(restaurantID, updatedMenu, (response) => {
+    res.send()
   })
 })
 
-app.delete('/restaurants/:restaurantID/menu/:menu/delete', (req, res) => {
+app.delete('/restaurants/:restaurantID/delete', (req, res) => {
   let restaurantID = req.params.restaurantID.toString();
-  db.deleteMenuByRestaurantId(restaurantID, menuType, (response) => {
-    res.json()
+  db.deleteEntireMenu(restaurantID, (response) => {
+    res.send()
   })
 })
 
