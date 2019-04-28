@@ -3,7 +3,6 @@ import styles from "./css/entries.css";
 
 const entries = props => {
   let selected = props.selected;
-  console.log(props)
   return (
     <div className={styles.entryContainer}>
       <div className={styles.title}>

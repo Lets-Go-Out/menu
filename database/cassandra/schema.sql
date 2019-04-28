@@ -8,4 +8,5 @@ CREATE TABLE IF NOT EXISTS menus.restaurant_menus (
 CREATE INDEX restaurant_id on menus.restaurant_menus (restaurant_id);
 
 
-CREATE KEYSPACE IF NOT EXISTS menus WITH REPLICATION = {'class' : 'NetworkTopologyStrategy', 'datacenter1' : 3};
+-- CREATE KEYSPACE IF NOT EXISTS menus WITH REPLICATION = {'class' : 'NetworkTopologyStrategy', 'datacenter1' : 3};
+-- CREATE KEYSPACE IF NOT EXISTS menus WITH REPLICATION = { 'class' : 'SimpleStrategy', 'replication_factor' : 3 };

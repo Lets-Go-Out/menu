@@ -7,15 +7,6 @@ let option = {
   }
 };
 
-{/* <div className={styles.entryContainer}>
-<div className={styles.title}>
-  {props.item[selected].name}
-  <span className={styles.price}>{props.item[selected].price}</span>
-</div>
-<div />
-<div className={styles.description}>
-  {props.item[selected].description} */}
-
 export const fetchMenuData = (restaurantID, fetchMenuData, fetchData) => {
   fetch(url + restaurantID + "/menuCount", option)
     .then(response => response.json())
@@ -74,19 +65,12 @@ export const fetchSpecial = (restaurantID, fetchspecial) => {
     .then(allMenus => {
       let unparsedMenuData = (allMenus.split("}{"))
       let parsedMenuData = JSON.parse(unparsedMenuData)
-      let arrayFromParsedMenuData = []
-      let menuTypes = []
-      for(var key in parsedMenuData){
-        arrayFromParsedMenuData.push(parsedMenuData[key])
-        menuTypes.push(key)
-      }
-      let specialIndex = menuTypes.indexOf('special')
-      let specialMenu = arrayFromParsedMenuData[specialIndex]
-      let specialArr = []
-      for(var i = 0; i < 3; i++){
+      var specialMenus = parsedMenuData.special
+      let specialArr = [];
+      for(var i = 0; i < 6; i++){
         let newFormattedSpecial = {}
-        newFormattedSpecial.head = specialMenu[i].specialName
-        newFormattedSpecial.body = specialMenu[i].specialDescription
+        newFormattedSpecial.head = specialMenus[`item${i}`].specialName
+        newFormattedSpecial.body = specialMenus[`item${i}`].description
         newFormattedSpecial.restaurantID = restaurantID
         specialArr.push(newFormattedSpecial)
       }
