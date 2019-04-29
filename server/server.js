@@ -5,7 +5,7 @@ const path = require("path");
 const cors = require("cors");
 const parser = require("body-parser");
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 const db = require('../database/cassandra/queries')
 
 // const postConnection = require('../database/postgres/queries')
@@ -24,6 +24,16 @@ app.listen(port, () => {
 });
 
 // //displaying a specific menu by restaurant id and menu type
+app.get('/loaderio-f8f30d27c5c58bedf51da153313ba6bf/', (req, res) => {
+  fs.readFile('../loaderio.txt', (err, data) => {
+    if(err){
+      console.log(err)
+    } else {
+      res.send(data)
+    }
+  })
+})
+
 app.get("/restaurants/:restaurantID/menu/:menu", (req, res) => {
   let menu = req.params.menu;
   let restaurantID = req.params.restaurantID.toString();
