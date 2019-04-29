@@ -52,6 +52,7 @@
     "mongodb": "^3.1.8",
     "mongoose": "^5.3.11",
     "morgan": "^1.9.0",
+    "newrelic": "^5.7.0",
     "pg": "^7.10.0",
     "random-words": "^1.1.0",
     "uuid": "^3.3.2",
