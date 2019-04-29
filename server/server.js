@@ -25,7 +25,7 @@ app.listen(port, () => {
 
 // //displaying a specific menu by restaurant id and menu type
 app.get('/loaderio-f8f30d27c5c58bedf51da153313ba6bf.txt', (req, res) => {
-  res.sendFile('../loaderio.txt')
+  res.sendFile('../loaderio-f8f30d27c5c58bedf51da153313ba6bf.txt')
 })
 
 app.get("/restaurants/:restaurantID/menu/:menu", (req, res) => {
