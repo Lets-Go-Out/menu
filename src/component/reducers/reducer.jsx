@@ -3,10 +3,10 @@ import { callbackify } from "util";
 
 const initialState = {
   navmenu: ["Lunch", "Dinner", "Brunch", "Happy Hour", "Alcohol"],
-  selected: "Lunch", //need to use Caps
+  selected: "Breakfast", //need to use Caps
   viewmode: "container-1",
   viewFull: "viewFull", //view Button
-  restaurantID: 7899999,
+  restaurantID: 1,
   entry: [],
   special: []
 };

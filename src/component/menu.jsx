@@ -22,7 +22,6 @@ export class Menu extends React.Component {
   }
 
   render() {
-    console.log(this.props, 'PROOOOOOOOOPS')
     if ("ENTRY", this.props.entry.length > 1) {
       var mid = Math.ceil(this.props.entry.length / 2);
     } else {

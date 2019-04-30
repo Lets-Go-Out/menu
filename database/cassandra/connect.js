@@ -2,8 +2,24 @@ const fs = require('fs')
 const path = require('path')
 const cassandra = require('cassandra-driver');
 
-var authProvider = new cassandra.auth.PlainTextAuthProvider('jennummerdor', '627277');
+const client = new cassandra.Client({ 
+    contactPoints: [
+        "127.0.0.1"
+    ], 
+    keyspace: 'menus',
+    socketOptions: {
+        connectionTimeout: 5000
+    }, 
+    localDataCenter: 'datacenter1'
+});
 
-const client = new cassandra.Client({ contactPoints: ['127.0.0.1'], localDataCenter: 'datacenter1', keyspace: 'menus' });
+client.connect((err, res) => {
+    if(err){
+        console.error(err)
+    } else {
+        console.log('Connected to cluster! :D')
+    }
+})
 
 module.exports = client;
+ 

@@ -1,11 +1,10 @@
 const newrelic = require('newrelic');
 const express = require("express");
-const morgan = require("morgan");
 const path = require("path");
 const cors = require("cors");
 const parser = require("body-parser");
 const app = express();
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 80;
 const db = require('../database/cassandra/queries')
 
 // const postConnection = require('../database/postgres/queries')
@@ -14,18 +13,16 @@ const db = require('../database/cassandra/queries')
 // const cassConnection = require('../database/cassandra/queries')
 // const cassCsvGeneration = require('../database/cassandra/csvGeneration')
 
-app.use(morgan("dev"));
-app.use(cors());
+app.use("*",cors());
 app.use(parser.json());
 app.use(express.static(path.join(__dirname, "../public")));
 
 app.listen(port, () => {
-  console.log(`server running at: http://localhost:${port}`);
+  console.log(`server running at port: ${port}`);
 });
 
-// //displaying a specific menu by restaurant id and menu type
-app.get('/loaderio-f8f30d27c5c58bedf51da153313ba6bf.txt', (req, res) => {
-  res.sendFile('../loaderio-f8f30d27c5c58bedf51da153313ba6bf.txt')
+app.get('/loaderio-527661f6c71acc3ef3b26bedf41e6aec.txt', (req, res) => {
+  res.sendFile('/home/ubuntu/menu/loaderio-527661f6c71acc3ef3b26bedf41e6aec.txt')
 })
 
 app.get("/restaurants/:restaurantID/menu/:menu", (req, res) => {
@@ -57,7 +54,7 @@ app.post('/restaurants/:restaurantID/menu/add-new', (req, res) => {
   db.addNewRestaurant(restaurantId, newMenu, (response) => {
     res.send()
   })
-})
+});
 
 app.put('/restaurants/:restaurantID/menu/:menu/edit', (req, res) => {
   let restaurantID = req.params.restaurantID.toString();

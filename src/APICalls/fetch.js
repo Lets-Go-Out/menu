@@ -1,5 +1,5 @@
 // let url = "http://127.0.0.1:3001/restaurants/";
-let url = "/restaurants/";
+let url = '/restaurants/'
 let option = {
   method: "GET",
   headers: {
