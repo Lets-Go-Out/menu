@@ -17,9 +17,10 @@ app.use("*",cors());
 app.use(parser.json());
 app.use(express.static(path.join(__dirname, "../public")));
 
-app.listen(port, () => {
-  console.log(`server running at port: ${port}`);
-});
+app.listen(port)
+// app.listen(port, () => {
+//   console.log(`server running at port: ${port}`);
+// });
 
 app.get('/loaderio-527661f6c71acc3ef3b26bedf41e6aec.txt', (req, res) => {
   res.sendFile('/home/ubuntu/menu/loaderio-527661f6c71acc3ef3b26bedf41e6aec.txt')
