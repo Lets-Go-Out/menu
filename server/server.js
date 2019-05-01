@@ -22,8 +22,9 @@ app.listen(port)
 //   console.log(`server running at port: ${port}`);
 // });
 
-app.get('/loaderio-099fffeaa73c97c8cbe66c67332dd035.txt', (req, res) => {
-  res.sendFile('/home/ubuntu/menu/loaderio-099fffeaa73c97c8cbe66c67332dd035.txt')
+app.get('/loaderio-d0ef15e857a20dadc3876cbc56b45151.txt', (req, res) => {
+  res.sendFile('/home/ec2-user/menuloaderio-d0ef15e857a20dadc3876cbc56b45151.txt')
+  // res.sendFile('/home/ubuntu/menu/loaderio-d0ef15e857a20dadc3876cbc56b45151.txt')
 })
 
 app.get("/restaurants/:restaurantID/menu/:menu", (req, res) => {
