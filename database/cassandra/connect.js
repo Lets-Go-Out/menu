@@ -4,9 +4,11 @@ const cassandra = require('cassandra-driver');
 
 const client = new cassandra.Client({ 
     contactPoints: [
-    "172.31.25.15",
-    "172.31.23.58",
-    "172.31.30.192"
+        "172.31.63.186", 
+        "172.31.61.207",
+        "172.31.48.192",
+        "172.31.52.93",
+        "172.31.53.36"
     ], 
     keyspace: 'menus',
     socketOptions: {
@@ -27,4 +29,3 @@ client.connect((err, res) => {
 })
 
 module.exports = client;
- 

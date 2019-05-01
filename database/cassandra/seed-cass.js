@@ -7,4 +7,4 @@ const client = require('./connect')
 // COPY menus.restaurant_menus FROM '/Users/jennummerdor/hrphx/sdc/menu/database/cassandra/menus/restaurant_menus/meals4.csv' WITH DELIMITER='^'AND MAXBATCHSIZE = 2 AND CHUNKSIZE = 50;
 // COPY menus.restaurant_menus FROM '/Users/jennummerdor/hrphx/sdc/menu/database/cassandra/menus/restaurant_menus/meals5.csv' WITH DELIMITER='^'AND MAXBATCHSIZE = 2 AND CHUNKSIZE = 50;
 
-//COPY menus.restaurant_menus FROM '/Users/student/Desktop/menu/database/cassandra/records/meals1.csv' WITH DELIMITER='^' AND MAXBATCHSIZE = 2 AND CHUNKSIZE = 100;
+//COPY menus.restaurant_menus FROM '/home/ec2-user/menu/database/cassandra/records/meals3.csv' WITH DELIMITER='^' AND MAXBATCHSIZE = 2 AND CHUNKSIZE = 100;
