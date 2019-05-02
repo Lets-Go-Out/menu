@@ -6,6 +6,8 @@ const parser = require("body-parser");
 const app = express();
 const port = process.env.PORT || 80;
 const db = require('../database/cassandra/queries')
+var redis = require('redis')
+client = redis.createClient()
 
 // const postConnection = require('../database/postgres/queries')
 // const postCsvGeneration = require('../database/postgres/csvGeneration')
@@ -17,10 +19,10 @@ app.use("*",cors());
 app.use(parser.json());
 app.use(express.static(path.join(__dirname, "../public")));
 
-app.listen(port)
-// app.listen(port, () => {
-//   console.log(`server running at port: ${port}`);
-// });
+// app.listen(port)
+app.listen(port, () => {
+  console.log(`server running at port: ${port}`);
+});
 
 app.get('/loaderio-d0ef15e857a20dadc3876cbc56b45151.txt', (req, res) => {
   res.sendFile('/home/ec2-user/menuloaderio-d0ef15e857a20dadc3876cbc56b45151.txt')
@@ -30,7 +32,6 @@ app.get('/loaderio-d0ef15e857a20dadc3876cbc56b45151.txt', (req, res) => {
 app.get("/restaurants/:restaurantID/menu/:menu", (req, res) => {
   let menu = req.params.menu;
   let restaurantID = req.params.restaurantID.toString();
-
   db.findRestaurantById(restaurantID, (response)=>{
     res.json(`${response.rows[0].menu_list}`)
   })

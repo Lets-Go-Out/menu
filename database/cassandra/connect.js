@@ -22,9 +22,9 @@ const client = new cassandra.Client({
 
 client.connect((err, res) => {
     if(err){
-        // console.error(err)
+        console.error(err)
     } else {
-        // console.log('Connected to cluster! :D')
+        console.log('Connected to cluster! :D')
     }
 })
 
