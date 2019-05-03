@@ -15,7 +15,7 @@ const client = new cassandra.Client({
     socketOptions: {
         connectionTimeout: 5000
     }, 
-    localDataCenter: 'datacenter1', 
+    localDataCenter: 'dc1', 
     queryOptions: {
         consistency: cassandra.types.consistencies.one
     }
